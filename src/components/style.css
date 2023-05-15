@@ -2,7 +2,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 body {
@@ -30,7 +30,7 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   position: fixed;
   width: 100%;
-  z-index: 1;
+  z-index: 999;
 }
 
 .header .logo img {
@@ -153,6 +153,11 @@ input:focus {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   margin-top: 30px;
   width: 100%;
+}
+
+.cart-container {
+  position: absolute;
+  top: 60px;
 }
 
 /* Media queries */

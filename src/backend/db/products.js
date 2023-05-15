@@ -10,6 +10,8 @@ export const products = [
     price: "250",
     categoryName: "Indian",
     isVegetarian: false,
+    rating: 4.5,
+    restaurant: "Spice Delight",
   },
   {
     _id: uuid(),
@@ -18,6 +20,8 @@ export const products = [
     price: "200",
     categoryName: "Indian",
     isVegetarian: false,
+    rating: 4.2,
+    restaurant: "Taste of India",
   },
   {
     _id: uuid(),
@@ -26,6 +30,8 @@ export const products = [
     price: "180",
     categoryName: "Indian",
     isVegetarian: true,
+    rating: 4.8,
+    restaurant: "Saffron Spice",
   },
   {
     _id: uuid(),
@@ -34,6 +40,8 @@ export const products = [
     price: "150",
     categoryName: "Indian",
     isVegetarian: true,
+    rating: 4.6,
+    restaurant: "Dosa Corner",
   },
   {
     _id: uuid(),
@@ -42,6 +50,8 @@ export const products = [
     price: "160",
     categoryName: "Indian",
     isVegetarian: true,
+    rating: 4.3,
+    restaurant: "Flavors of Punjab",
   },
   {
     _id: uuid(),
@@ -50,6 +60,8 @@ export const products = [
     price: "280",
     categoryName: "Indian",
     isVegetarian: false,
+    rating: 4.7,
+    restaurant: "Spice Delight",
   },
   {
     _id: uuid(),
@@ -58,6 +70,8 @@ export const products = [
     price: "220",
     categoryName: "Indian",
     isVegetarian: true,
+    rating: 4.4,
+    restaurant: "Saffron Spice",
   },
   {
     _id: uuid(),
@@ -66,6 +80,8 @@ export const products = [
     price: "170",
     categoryName: "Indian",
     isVegetarian: true,
+    rating: 4.1,
+    restaurant: "Taste of India",
   },
   {
     _id: uuid(),
@@ -74,6 +90,8 @@ export const products = [
     price: "120",
     categoryName: "Indian",
     isVegetarian: true,
+    rating: 4.9,
+    restaurant: "Flavors of Punjab",
   },
   {
     _id: uuid(),
@@ -82,6 +100,8 @@ export const products = [
     price: "90",
     categoryName: "Indian",
     isVegetarian: true,
+    rating: 4.2,
+    restaurant: "Dosa Corner",
   },
 
   // Chinese Category
@@ -93,6 +113,8 @@ export const products = [
     price: "180",
     categoryName: "Chinese",
     isVegetarian: false,
+    rating: 4.5,
+    restaurant: "Golden Dragon",
   },
   {
     _id: uuid(),
@@ -102,6 +124,8 @@ export const products = [
     price: "150",
     categoryName: "Chinese",
     isVegetarian: true,
+    rating: 4.2,
+    restaurant: "Wok n' Roll",
   },
   {
     _id: uuid(),
@@ -110,6 +134,8 @@ export const products = [
     price: "200",
     categoryName: "Chinese",
     isVegetarian: false,
+    rating: 4.8,
+    restaurant: "Panda Palace",
   },
   {
     _id: uuid(),
@@ -118,6 +144,8 @@ export const products = [
     price: "160",
     categoryName: "Chinese",
     isVegetarian: false,
+    rating: 4.6,
+    restaurant: "Szechuan Garden",
   },
   {
     _id: uuid(),
@@ -126,6 +154,8 @@ export const products = [
     price: "120",
     categoryName: "Chinese",
     isVegetarian: true,
+    rating: 4.3,
+    restaurant: "Wok n' Roll",
   },
   {
     _id: uuid(),
@@ -134,6 +164,8 @@ export const products = [
     price: "300",
     categoryName: "Chinese",
     isVegetarian: false,
+    rating: 4.7,
+    restaurant: "Golden Dragon",
   },
   {
     _id: uuid(),
@@ -142,6 +174,8 @@ export const products = [
     price: "100",
     categoryName: "Chinese",
     isVegetarian: true,
+    rating: 4.4,
+    restaurant: "Szechuan Garden",
   },
   {
     _id: uuid(),
@@ -151,6 +185,8 @@ export const products = [
     price: "170",
     categoryName: "Chinese",
     isVegetarian: true,
+    rating: 4.1,
+    restaurant: "Panda Palace",
   },
   {
     _id: uuid(),
@@ -159,17 +195,21 @@ export const products = [
     price: "220",
     categoryName: "Chinese",
     isVegetarian: true,
+    rating: 4.9,
+    restaurant: "Wok n' Roll",
   },
   {
     _id: uuid(),
-    title: "Szechuan Beef",
+    title: "Vegetable Chow Mein",
     description:
-      "Spicy beef stir-fry with Szechuan peppercorns and vegetables.",
-    price: "250",
+      "Stir-fried noodles with a medley of vegetables in a savory sauce.",
+    price: "150",
     categoryName: "Chinese",
-    isVegetarian: false,
+    isVegetarian: true,
+    rating: 4.3,
+    restaurant: "Wok n' Roll",
   },
-
+  //Italian Categories
   {
     _id: uuid(),
     title: "Margherita Pizza",
@@ -178,6 +218,8 @@ export const products = [
     price: "300",
     categoryName: "Italian",
     isVegetarian: true,
+    rating: 4.6,
+    restaurant: "Pizza Italia",
   },
   {
     _id: uuid(),
@@ -187,6 +229,8 @@ export const products = [
     price: "250",
     categoryName: "Italian",
     isVegetarian: false,
+    rating: 4.2,
+    restaurant: "Pasta La Vista",
   },
   {
     _id: uuid(),
@@ -196,6 +240,8 @@ export const products = [
     price: "280",
     categoryName: "Italian",
     isVegetarian: true,
+    rating: 4.4,
+    restaurant: "Trattoria Deliziosa",
   },
   {
     _id: uuid(),
@@ -205,6 +251,8 @@ export const products = [
     price: "320",
     categoryName: "Italian",
     isVegetarian: false,
+    rating: 4.8,
+    restaurant: "Mamma Mia Ristorante",
   },
   {
     _id: uuid(),
@@ -214,6 +262,8 @@ export const products = [
     price: "180",
     categoryName: "Italian",
     isVegetarian: true,
+    rating: 4.5,
+    restaurant: "Dolce Vita",
   },
   {
     _id: uuid(),
@@ -223,6 +273,8 @@ export const products = [
     price: "120",
     categoryName: "Italian",
     isVegetarian: true,
+    rating: 4.1,
+    restaurant: "Gusto Italiano",
   },
   {
     _id: uuid(),
@@ -231,6 +283,8 @@ export const products = [
     price: "100",
     categoryName: "Italian",
     isVegetarian: true,
+    rating: 4.7,
+    restaurant: "Gelateria Bella",
   },
   {
     _id: uuid(),
@@ -240,6 +294,8 @@ export const products = [
     price: "200",
     categoryName: "Italian",
     isVegetarian: true,
+    rating: 4.3,
+    restaurant: "Bella Cucina",
   },
   {
     _id: uuid(),
@@ -248,6 +304,8 @@ export const products = [
     price: "150",
     categoryName: "Italian",
     isVegetarian: true,
+    rating: 4.6,
+    restaurant: "Gusto Italiano",
   },
   {
     _id: uuid(),
@@ -256,5 +314,7 @@ export const products = [
     price: "220",
     categoryName: "Italian",
     isVegetarian: false,
+    rating: 4.2,
+    restaurant: "Mamma Mia Ristorante",
   },
 ];

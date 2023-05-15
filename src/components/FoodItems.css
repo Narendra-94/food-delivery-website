@@ -1,0 +1,79 @@
+.sidebar-container {
+  position: absolute;
+  top: 50px;
+  /* border: 1px solid red; */
+  height: 100%;
+  width: 15%;
+  padding: 20px;
+  padding-top: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.sidebar-slider-label {
+  display: flex;
+  justify-content: space-between;
+}
+.sidebar-slider-item h2 {
+  margin-bottom: 10px;
+}
+
+.sidebar-slider-item input {
+  margin-top: 5px;
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.sidebar-category {
+  margin-bottom: 20px;
+  list-style-type: none;
+}
+
+.sidebar-category-list {
+  margin-top: 5px;
+}
+
+.sidebar-category-list li input {
+  margin: 5px;
+}
+
+.sidebar-rating {
+  margin-bottom: 20px;
+  list-style: none;
+}
+
+.sidebar-rating-list {
+  margin-top: 5px;
+}
+.sidebar-rating-list li input {
+  margin: 5px;
+}
+
+.sidebar-sortby-price {
+  list-style-type: none;
+}
+
+.sidebar-sortby-price-list {
+  margin-top: 5px;
+}
+
+.sidebar-sortby-price-list li input {
+  margin: 5px;
+}
+
+.sidebar-container {
+  position: absolute;
+  top: 50px;
+  /* border: 1px solid red; */
+  height: 100%;
+  width: 15%; /* Set the width to 15% for all screen sizes */
+  padding: 20px;
+  padding-top: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}

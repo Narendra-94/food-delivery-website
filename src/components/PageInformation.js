@@ -13,7 +13,9 @@ export const PageInformation = () => {
           ultimate food delivery app, your taste buds are in for a treat.
         </p>
         <button>
-          <Link style={{ textDecoration: "none" }}>I'm Hungry</Link>
+          <Link to="/foodItems" style={{ textDecoration: "none" }}>
+            I'm Hungry
+          </Link>
         </button>
       </div>
     </div>

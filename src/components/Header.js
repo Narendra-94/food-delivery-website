@@ -1,21 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faUser, faBars } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 import { Link } from "react-router-dom";
 import logo from "../images/theme_logo.png";
 import { Search } from "./Search";
+import { SearchContext } from "../context/SearchContext";
 
 export const Header = () => {
+  const { state, dispatch } = useContext(SearchContext);
   return (
     <div className="header">
+      <FontAwesomeIcon
+        onClick={() => dispatch({ type: "SIDEBAR_ACTIVE" })}
+        icon={faBars}
+        style={{ color: "#0f0f0f" }}
+        size="xl"
+      />
       <Link to="/" className="logo">
         <img src={logo} alt="" />
       </Link>
-
       <Search />
-
       <div className="user-auth">
         <Link to="/login">Login</Link>
         <Link to="/cart">
