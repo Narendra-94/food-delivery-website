@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router";
+import Mockman from "mockman-js";
 
 import { Home } from "./pages/Home";
 import { Cart } from "./pages/Cart";
@@ -15,6 +16,7 @@ export const App = () => {
   return (
     <>
       <Header />
+
       <Routes>
         <Route path="/" element={<Home />} />
 
@@ -22,6 +24,7 @@ export const App = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishList" element={<WishList />} />
         <Route path="/foodItems" element={<FoodItems />} />
+        <Route path="/mockman" element={<Mockman />} />
       </Routes>
     </>
   );

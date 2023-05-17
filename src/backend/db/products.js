@@ -12,6 +12,7 @@ export const products = [
     isVegetarian: false,
     rating: 4.5,
     restaurant: "Spice Delight",
+    url: "https://img.freepik.com/free-photo/massaman-curry-frying-pan-with-spices-cement-floor_1150-20777.jpg?w=1380&t=st=1684271857~exp=1684272457~hmac=acd085fe9a82fc48cc3278c73f5c7de66ae4604522625bc70cda972af9e8c400",
   },
   {
     _id: uuid(),
@@ -22,6 +23,7 @@ export const products = [
     isVegetarian: false,
     rating: 4.2,
     restaurant: "Taste of India",
+    url: "https://img.freepik.com/free-photo/plate-food-with-lemon-lemon_505751-3815.jpg?w=1480&t=st=1684266359~exp=1684266959~hmac=136384cd8474a01046ee005fdb189e2d23d61f55046dfea9584c64327186240b",
   },
   {
     _id: uuid(),
@@ -32,6 +34,7 @@ export const products = [
     isVegetarian: true,
     rating: 4.8,
     restaurant: "Saffron Spice",
+    url: "https://img.freepik.com/premium-photo/indian-healthy-cuisine-palak-paneer-served-with-tandoori-roti_55610-735.jpg?w=900",
   },
   {
     _id: uuid(),
@@ -42,6 +45,7 @@ export const products = [
     isVegetarian: true,
     rating: 4.6,
     restaurant: "Dosa Corner",
+    url: "https://img.freepik.com/premium-photo/masala-dosa-is-south-indian-meal-served-with-sambhar-coconut-chutney-selective-focus_466689-22963.jpg?w=1380",
   },
   {
     _id: uuid(),
@@ -52,6 +56,7 @@ export const products = [
     isVegetarian: true,
     rating: 4.3,
     restaurant: "Flavors of Punjab",
+    url: "https://img.freepik.com/premium-photo/chole-bhature-chick-pea-curry-fried-puri-served-terracotta-crockery-white-background-selective-focus_466689-24954.jpg?size=626&ext=jpg&ga=GA1.2.1064346653.1684010029&semt=ais",
   },
   {
     _id: uuid(),
@@ -62,6 +67,7 @@ export const products = [
     isVegetarian: false,
     rating: 4.7,
     restaurant: "Spice Delight",
+    url: "https://img.freepik.com/free-photo/chicken-skewers-with-slices-sweet-peppers-dill_2829-18809.jpg?w=1380&t=st=1684266846~exp=1684267446~hmac=54700f89dfb4e5ef50ee115f23db12644ad70377a437f322c888b34bfd5c3201",
   },
   {
     _id: uuid(),
@@ -72,6 +78,7 @@ export const products = [
     isVegetarian: true,
     rating: 4.4,
     restaurant: "Saffron Spice",
+    url: "https://img.freepik.com/premium-photo/paneer-tikka-is-indian-dish-made-from-chunks-cottage-cheese-marinated-spices-grilled-tandoor_466689-76790.jpg?w=1380",
   },
   {
     _id: uuid(),
@@ -82,6 +89,7 @@ export const products = [
     isVegetarian: true,
     rating: 4.1,
     restaurant: "Taste of India",
+    url: "https://img.freepik.com/premium-photo/rajma-razma-is-popular-north-indian-food-consisting-cooked-red-kidney-beans-thick-gravy-with-spices-served-bowl-with-jeera-rice-green-salad_466689-67406.jpg?size=626&ext=jpg&ga=GA1.1.1064346653.1684010029&semt=ais",
   },
   {
     _id: uuid(),
@@ -92,6 +100,7 @@ export const products = [
     isVegetarian: true,
     rating: 4.9,
     restaurant: "Flavors of Punjab",
+    url: "https://img.freepik.com/premium-photo/gulab-jamun-bowl-wooden-table-indian-dessert-sweet-dish_136354-1353.jpg?w=1380",
   },
   {
     _id: uuid(),
@@ -102,6 +111,7 @@ export const products = [
     isVegetarian: true,
     rating: 4.2,
     restaurant: "Dosa Corner",
+    url: "https://img.freepik.com/premium-photo/lassi-drink-is-smoothies-milkshake-light-background-traditional-indian-pakistan-drink-with_131350-1047.jpg?w=1380",
   },
 
   // Chinese Category
@@ -115,6 +125,7 @@ export const products = [
     isVegetarian: false,
     rating: 4.5,
     restaurant: "Golden Dragon",
+    url: "https://img.freepik.com/free-photo/homemade-kung-pao-chicken-with-peppers-vegetables-chinese-food-stir-fry_2829-7179.jpg?w=1380&t=st=1684267163~exp=1684267763~hmac=e72bc229b1470d9fca486da44ab22e0031bca980a1aca10ca99085546a7d05ec",
   },
   {
     _id: uuid(),
@@ -126,16 +137,18 @@ export const products = [
     isVegetarian: true,
     rating: 4.2,
     restaurant: "Wok n' Roll",
+    url: "https://img.freepik.com/premium-photo/vegetarian-hyderabadi-dum-biryani-ramadan-food_158388-2268.jpg?w=1380",
   },
   {
     _id: uuid(),
-    title: "Kung Pao Chicken",
+    title: "Chicken Manchurian",
     description: "Spicy stir-fried chicken with peanuts and vegetables.",
     price: "200",
     categoryName: "Chinese",
     isVegetarian: false,
     rating: 4.8,
     restaurant: "Panda Palace",
+    url: "https://img.freepik.com/premium-photo/chilli-chicken-dry-is-popular-indo-chinese-dish-chicken-hakka-chinese-heritage_466689-77148.jpg?w=1380",
   },
   {
     _id: uuid(),
@@ -146,6 +159,7 @@ export const products = [
     isVegetarian: false,
     rating: 4.6,
     restaurant: "Szechuan Garden",
+    url: "https://img.freepik.com/free-photo/vegan-curry-with-tofu-vegetables_661915-287.jpg?w=1380&t=st=1684267495~exp=1684268095~hmac=977c44edf36c1e49d2f6588629756ba010e5fd9de78acb04d402768f3496f5dd",
   },
   {
     _id: uuid(),
@@ -156,6 +170,7 @@ export const products = [
     isVegetarian: true,
     rating: 4.3,
     restaurant: "Wok n' Roll",
+    url: "https://img.freepik.com/free-photo/fried-spring-rolls-cutting-board_1150-17011.jpg?w=1380&t=st=1684267523~exp=1684268123~hmac=3078d8139f1aa1d2e65acc7048a3cdaa4da655778b98aaa57a49215af608aece",
   },
   {
     _id: uuid(),
@@ -166,6 +181,7 @@ export const products = [
     isVegetarian: false,
     rating: 4.7,
     restaurant: "Golden Dragon",
+    url: "https://img.freepik.com/premium-photo/top-view-spicy-hot-bengali-fish-curry-indian-food-fish-curry-with-red-chili-curry-leaf-coconut-milk-asian-cuisine_158388-376.jpg?w=1380",
   },
   {
     _id: uuid(),
@@ -176,6 +192,7 @@ export const products = [
     isVegetarian: true,
     rating: 4.4,
     restaurant: "Szechuan Garden",
+    url: "https://img.freepik.com/free-photo/spicy-tomato-soup-with-meatballs-pasta-vegetables-healthy-dinner_2829-4283.jpg?w=1380&t=st=1684267602~exp=1684268202~hmac=0af0135ba66be5869674bd2cae181d6f023870aad5744db4e95ed84f68c57019",
   },
   {
     _id: uuid(),
@@ -187,6 +204,7 @@ export const products = [
     isVegetarian: true,
     rating: 4.1,
     restaurant: "Panda Palace",
+    url: "https://img.freepik.com/premium-photo/schezwan-noodles-vegetable-hakka-noodles-chow-mein-is-popular-indo-chinese-recipes-served-bowl-plate-with-wooden-chopsticks_466689-46285.jpg?w=1380",
   },
   {
     _id: uuid(),
@@ -197,6 +215,7 @@ export const products = [
     isVegetarian: true,
     rating: 4.9,
     restaurant: "Wok n' Roll",
+    url: "https://img.freepik.com/free-photo/high-angle-japanese-dumplings-composition_23-2148809869.jpg?w=1380&t=st=1684267651~exp=1684268251~hmac=6415fde7bac9c47957f61bd010a8b3ef248a946c7515865cff8cf82228b260f1",
   },
   {
     _id: uuid(),
@@ -208,6 +227,7 @@ export const products = [
     isVegetarian: true,
     rating: 4.3,
     restaurant: "Wok n' Roll",
+    url: "https://img.freepik.com/premium-photo/schezwan-hakka-noodles-with-paneer-cottage-cheese-served-bowl-selective-focus_466689-32734.jpg?w=740",
   },
   //Italian Categories
   {
@@ -220,6 +240,7 @@ export const products = [
     isVegetarian: true,
     rating: 4.6,
     restaurant: "Pizza Italia",
+    url: "https://img.freepik.com/free-photo/chicken-pizza-with-bell-peppers-tomato-cheese-round-wooden-board_140725-10493.jpg?w=996&t=st=1684267712~exp=1684268312~hmac=a24749000a7f170e239c02819487b65a7e1ff45415ba3ac836a4b46d1a06d9b6",
   },
   {
     _id: uuid(),
@@ -231,6 +252,7 @@ export const products = [
     isVegetarian: false,
     rating: 4.2,
     restaurant: "Pasta La Vista",
+    url: "https://img.freepik.com/free-photo/lifestyle-cocina-comida-foodie-gastronomy_1350-45.jpg?w=1380&t=st=1684267739~exp=1684268339~hmac=4f041ebbb3b8405be7804f50991925ff3708f2d4989b6641c856b0663c763897",
   },
   {
     _id: uuid(),
@@ -242,6 +264,7 @@ export const products = [
     isVegetarian: true,
     rating: 4.4,
     restaurant: "Trattoria Deliziosa",
+    url: "https://img.freepik.com/free-photo/pasta-colored-farfalle-salad-with-tomatoes-mozzarella-basil_2829-14395.jpg?w=1380&t=st=1684267791~exp=1684268391~hmac=0cc8e63d03a656782ec47ef9f236558500078b837eff8d484621c17aa5bb4424",
   },
   {
     _id: uuid(),
@@ -253,6 +276,7 @@ export const products = [
     isVegetarian: false,
     rating: 4.8,
     restaurant: "Mamma Mia Ristorante",
+    url: "https://img.freepik.com/free-photo/classic-lasagna-with-bolognese-sauce_2829-11353.jpg?w=1380&t=st=1684267831~exp=1684268431~hmac=87e1030b687e06e47b8ecc2e149446e9241848532f0a8698455b6fbbf57b9b53",
   },
   {
     _id: uuid(),
@@ -264,6 +288,7 @@ export const products = [
     isVegetarian: true,
     rating: 4.5,
     restaurant: "Dolce Vita",
+    url: "https://img.freepik.com/premium-photo/plate-with-tiramisu-cake-isolated-white-background_185193-77841.jpg?w=1380",
   },
   {
     _id: uuid(),
@@ -275,6 +300,7 @@ export const products = [
     isVegetarian: true,
     rating: 4.1,
     restaurant: "Gusto Italiano",
+    url: "https://img.freepik.com/free-photo/slices-bruschetta-basil-leaf_23-2148698648.jpg?w=826&t=st=1684267949~exp=1684268549~hmac=75ef278a52fdded3a753994498a1bf98bedf9e2bbbc34e8c2179771c3cf8edb2",
   },
   {
     _id: uuid(),
@@ -285,6 +311,7 @@ export const products = [
     isVegetarian: true,
     rating: 4.7,
     restaurant: "Gelateria Bella",
+    url: "https://www.freepik.com/free-photo/roasted-plums-ice-cream-bowl-with-spoon_15849946.htm#query=Gelato&position=0&from_view=search&track=sph",
   },
   {
     _id: uuid(),
@@ -296,6 +323,7 @@ export const products = [
     isVegetarian: true,
     rating: 4.3,
     restaurant: "Bella Cucina",
+    url: "https://img.freepik.com/free-photo/classic-greek-salad-fresh-vegetables-cucumber-tomato-sweet-pepper-lettuce-red-onion-feta-cheese-olives-with-olive-oil-healthy-food-top-view_1150-44957.jpg?w=1380&t=st=1684268046~exp=1684268646~hmac=c7ce3011ffe8accde6632655e18fae632311057c7b3b2f665dd706aedbec832e",
   },
   {
     _id: uuid(),
@@ -306,6 +334,7 @@ export const products = [
     isVegetarian: true,
     rating: 4.6,
     restaurant: "Gusto Italiano",
+    url: "https://img.freepik.com/free-photo/minimalist-yogurt-cranberries-bio-food-lifestyle-concept_23-2148650249.jpg?w=1060&t=st=1684268076~exp=1684268676~hmac=1e4328b294f4130cfc92db1fe2825c4fbcd846edddc0c60ade439781c2859cbf",
   },
   {
     _id: uuid(),
@@ -316,5 +345,6 @@ export const products = [
     isVegetarian: false,
     rating: 4.2,
     restaurant: "Mamma Mia Ristorante",
+    url: "https://img.freepik.com/free-photo/front-view-type-sausage-plate-with-herbs-spices-table_140725-11380.jpg?w=1060&t=st=1684268125~exp=1684268725~hmac=a404f06fc0ece6d040b43e983cc06996a5f3ca53fb03abeae9d0c1368e547c62",
   },
 ];

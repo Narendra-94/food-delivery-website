@@ -1,7 +1,7 @@
 .sidebar-container {
-  position: absolute;
+  position: fixed;
   top: 50px;
-  /* border: 1px solid red; */
+  left: 0;
   height: 100%;
   width: 15%;
   padding: 20px;
@@ -76,4 +76,40 @@
   padding: 20px;
   padding-top: 40px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  left: 15px;
+}
+
+.food-content {
+  position: absolute;
+  top: 50px;
+  left: 15%; /* Adjust the left value to match the width of the sidebar */
+  width: 85%; /* Adjust the width to account for the sidebar */
+  margin-top: 20px;
+  height: 100%;
+  padding-left: 70px; /* Add padding to create space for the sidebar */
+}
+
+.food-content .content {
+  width: 200px; /* Adjust the width as per your requirements */
+  height: 250px; /* Adjust the height as per your requirements */
+  margin: 10px;
+  background-color: #f2f2f2;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.foodlist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px; /* Adjust the gap between items as per your requirements */
+  width: 100%;
+}
+
+.content img {
+  width: 100%; /* Set the image width to fill the container */
+  height: 70%; /* Set the image height to fill the container */
+  object-fit: cover; /* Maintain aspect ratio and crop if needed */
+  border-radius: 4px; /* Apply border radius to match container */
 }

@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { SearchContext } from "../context/SearchContext";
+import { HomeContext } from "../context/HomeContext";
 
 export const Sidebar = () => {
-  const { state, dispatch } = useContext(SearchContext);
+  const { state } = useContext(HomeContext);
   console.log(state);
   return (
     <>

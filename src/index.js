@@ -3,15 +3,23 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import { App } from "./components/App";
-import { SearchProvider } from "./context/SearchContext";
+
+import { makeServer } from "./server";
+import { HomeProvider } from "./context/HomeContext";
+import { FoodListProvider } from "./context/FoodListContext";
+
+// Call make Server
+makeServer();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Router>
-      <SearchProvider>
-        <App />
-      </SearchProvider>
+      <HomeProvider>
+        <FoodListProvider>
+          <App />
+        </FoodListProvider>
+      </HomeProvider>
     </Router>
   </React.StrictMode>
 );
