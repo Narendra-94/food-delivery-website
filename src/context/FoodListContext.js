@@ -8,6 +8,19 @@ export const FoodListProvider = ({ children }) => {
 
   useEffect(() => {
     const getData = async () => {
+      const response = await fetch("/api/categories");
+      const data = await response.json();
+
+      dispatch({
+        type: "FETCH_SUCCESSFUL_HOME_DATA",
+        payload: data.categories,
+      });
+    };
+    getData();
+  }, []);
+
+  useEffect(() => {
+    const getData = async () => {
       const response = await fetch("/api/products");
       const data = await response.json();
 

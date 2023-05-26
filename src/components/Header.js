@@ -6,10 +6,12 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import logo from "../images/theme_logo.png";
 import { Search } from "./Search";
-import { HomeContext } from "../context/HomeContext";
+
+import { FoodListContext } from "../context/FoodListContext";
 
 export const Header = () => {
-  const { state, dispatch } = useContext(HomeContext);
+  const { state, dispatch } = useContext(FoodListContext);
+
   return (
     <div className="header">
       <FontAwesomeIcon

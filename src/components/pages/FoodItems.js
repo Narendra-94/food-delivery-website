@@ -4,7 +4,7 @@ import { FoodContent } from "../FoodContent";
 
 export const FoodItems = () => {
   return (
-    <div>
+    <div className="main-container">
       <Sidebar />
       <FoodContent />
     </div>

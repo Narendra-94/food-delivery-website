@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import deliverySlider from "../images/delivery-slider.png";
 import { Link } from "react-router-dom";
+import { FoodListContext } from "../context/FoodListContext";
 
 export const PageInformation = () => {
+  const { state, dispatch } = useContext(FoodListContext);
   return (
     <div className="home-page">
       <img src={deliverySlider} alt="" />
@@ -12,7 +14,11 @@ export const PageInformation = () => {
           Hungry? Don't worry, we've got you covered. With FoodEase, the
           ultimate food delivery app, your taste buds are in for a treat.
         </p>
-        <button>
+        <button
+          onClick={() =>
+            dispatch({ type: "ON_CLICKING_CATEGORY", payload: "" })
+          }
+        >
           <Link to="/foodItems" style={{ textDecoration: "none" }}>
             I'm Hungry
           </Link>
