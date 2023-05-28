@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FoodListContext } from "../context/FoodListContext";
+import { AddToCart } from "./AddToCart";
 
 export const FoodContent = () => {
   const { state, dispatch } = useContext(FoodListContext);
 
-  console.log(state, "state.category");
+  // console.log(state, "state.category");
   const selectedCategory =
     state.category === ""
       ? state.foodList
@@ -40,8 +41,10 @@ export const FoodContent = () => {
         <>
           <h1 className="count">Total Food Items:{filterRating.length}</h1>
           <div className="foodlist">
-            {filterRating.map(
-              ({ _id, title, description, price, url, isVegetarian }) => (
+            {filterRating.map((product) => {
+              const { _id, title, description, price, url, isVegetarian } =
+                product;
+              return (
                 <div className="food-card" key={_id}>
                   <Link to={`/foodItems/${_id}`} className="food-items">
                     <img src={url} alt="indian_cuisine" />
@@ -55,11 +58,11 @@ export const FoodContent = () => {
                         <h3 className="price">Rs.{price}</h3>
                       </div>
                     </div>
-                    <button>Add to Cart</button>
                   </Link>
+                  <AddToCart product={product} />
                 </div>
-              )
-            )}
+              );
+            })}
           </div>
         </>
       )}

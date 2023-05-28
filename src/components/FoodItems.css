@@ -17,6 +17,10 @@
   margin-bottom: 20px;
 }
 
+.sidebar-header span {
+  cursor: pointer;
+}
+
 .sidebar-slider-label {
   display: flex;
   justify-content: space-between;
@@ -85,6 +89,7 @@
 
 .food-card {
   display: flex;
+  flex-direction: column;
   background-color: #f2f2f2;
   border-radius: 4px;
   padding: 10px;
@@ -94,6 +99,10 @@
   margin-bottom: 20px;
   box-sizing: border-box;
   align-items: flex-start;
+}
+
+.food-card button {
+  width: 100%;
 }
 
 .foodlist {

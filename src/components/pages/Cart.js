@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { FoodListContext } from "../../context/FoodListContext";
 
 export const Cart = () => {
-  console.log("cart");
+  const { state } = useContext(FoodListContext);
+  console.log(state.cart);
   return (
     <div className="cart-container">
-      {" "}
-      {/* Add a unique class or id here */}
       <h1>Cart</h1>
     </div>
   );

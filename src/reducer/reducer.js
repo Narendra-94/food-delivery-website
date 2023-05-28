@@ -9,7 +9,10 @@ export const initialState = {
   sortBy: null,
   inputValue: "",
   isSearchOpen: false,
-  category: null,
+  category: "",
+  showPassword: false,
+  showConfirmPassword: false,
+  cart: [],
 };
 
 export const reducer = (state, action) => {
@@ -82,6 +85,25 @@ export const reducer = (state, action) => {
         selectedRating: false,
         sortBy: null,
         category: action.payload,
+      };
+    }
+
+    case "ON_CLICKING_SHOW_PASSWORD": {
+      return {
+        ...state,
+        showPassword: !state.showPassword,
+      };
+    }
+    case "ON_CLICKING_SHOW_CONFIRM_PASSWORD": {
+      return {
+        ...state,
+        showConfirmPassword: !state.showConfirmPassword,
+      };
+    }
+    case "ADD_TO_CART": {
+      return {
+        ...state,
+        cart: action.payload,
       };
     }
 
