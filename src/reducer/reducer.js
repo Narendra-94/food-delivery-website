@@ -13,6 +13,7 @@ export const initialState = {
   showPassword: false,
   showConfirmPassword: false,
   cart: [],
+  wishList: [],
 };
 
 export const reducer = (state, action) => {
@@ -104,6 +105,23 @@ export const reducer = (state, action) => {
       return {
         ...state,
         cart: action.payload,
+      };
+    }
+    case "ADD_TO_WISHLIST": {
+      return {
+        ...state,
+        wishList: action.payload,
+      };
+    }
+    case "REMOVE_FROM_WISHLIST": {
+      console.log(action.payload, "payload");
+      const filterWishList = [...state.wishList]?.filter(
+        (item) => item._id !== action.payload._id
+      );
+      console.log(filterWishList, "filterWishList");
+      return {
+        ...state,
+        wishList: filterWishList,
       };
     }
 

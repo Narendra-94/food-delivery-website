@@ -7,7 +7,6 @@ export const AddToCart = ({ product }) => {
   const { state, dispatch } = useContext(FoodListContext);
   const { token } = useContext(AuthContext);
   const navigate = useNavigate();
-  console.log(state.cart, "cart");
 
   const handleAddToCart = async () => {
     try {
@@ -36,7 +35,7 @@ export const AddToCart = ({ product }) => {
 
   return (
     <div className="add-to-cart-btn">
-      {isInCart ? (
+      {isInCart && token ? (
         <Link to="/cart">
           <button style={{ backgroundColor: "green" }}>Go to Cart</button>
         </Link>

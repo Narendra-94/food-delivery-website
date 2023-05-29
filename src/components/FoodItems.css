@@ -88,7 +88,7 @@
 }
 
 .food-card {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   background-color: #f2f2f2;
   border-radius: 4px;
@@ -98,7 +98,8 @@
   flex-shrink: 0;
   margin-bottom: 20px;
   box-sizing: border-box;
-  align-items: flex-start;
+  align-items: flex-start; */
+  position: relative;
 }
 
 .food-card button {
@@ -122,6 +123,28 @@
   height: 150px;
   object-fit: cover;
   border-radius: 4px;
+}
+
+.food-card .food-content-wishlist {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 32px;
+  background-color: #b468fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0px;
+  border-bottom-left-radius: 10px;
+}
+
+.cart-wishlist-btn {
+  font-size: 24px;
+
+  transition: color 0.3s;
 }
 
 .food-card a {

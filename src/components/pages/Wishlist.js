@@ -1,7 +1,8 @@
+import { useContext } from "react";
+import { FoodListContext } from "../../context/FoodListContext";
+
 export const WishList = () => {
-  return (
-    <div className="cart-container">
-      <h1>lsit</h1>
-    </div>
-  );
+  const { state } = useContext(FoodListContext);
+  console.log(state.wishList);
+  return <div className="topToBody cart-container">wishList</div>;
 };

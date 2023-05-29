@@ -16,6 +16,8 @@ import { Profile } from "./pages/Profile";
 import "../components/style.css";
 import "../components/FoodItems.css";
 import "../components/login.css";
+import "../components/Cart.css";
+
 import { FoodListContext } from "../context/FoodListContext";
 
 export const App = () => {

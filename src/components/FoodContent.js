@@ -2,6 +2,9 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FoodListContext } from "../context/FoodListContext";
 import { AddToCart } from "./AddToCart";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { AddToWishList } from "./AddToWishList";
 
 export const FoodContent = () => {
   const { state, dispatch } = useContext(FoodListContext);
@@ -39,7 +42,7 @@ export const FoodContent = () => {
         </h1>
       ) : (
         <>
-          <h1 className="count">Total Food Items:{filterRating.length}</h1>
+          <h1 className="count">Total Food Items: {filterRating.length}</h1>
           <div className="foodlist">
             {filterRating.map((product) => {
               const { _id, title, description, price, url, isVegetarian } =
@@ -53,12 +56,12 @@ export const FoodContent = () => {
                         <h3>{title}</h3>
                         <p>{description}</p>
                       </div>
-
                       <div className="price-container">
-                        <h3 className="price">Rs.{price}</h3>
+                        <h3 className="price">{price}</h3>
                       </div>
                     </div>
                   </Link>
+                  <AddToWishList product={product} />
                   <AddToCart product={product} />
                 </div>
               );

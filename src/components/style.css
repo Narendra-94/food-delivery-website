@@ -157,11 +157,6 @@ input:focus {
   width: 100%;
 }
 
-.cart-container {
-  position: absolute;
-  top: 60px;
-}
-
 .search-output-container {
   width: 40rem;
   max-height: 55vh;
