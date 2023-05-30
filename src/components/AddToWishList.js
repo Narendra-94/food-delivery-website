@@ -26,6 +26,7 @@ export const AddToWishList = ({ product }) => {
       });
 
       const data = await response.json();
+      console.log(data, "datain wish");
 
       dispatch({ type: "ADD_TO_WISHLIST", payload: data.wishlist });
     } catch (error) {
@@ -34,7 +35,7 @@ export const AddToWishList = ({ product }) => {
   };
 
   const handleRemoveFromWishList = async () => {
-    const response = await fetch("/api/user/wishlist/:productId", {
+    const response = await fetch(`/api/user/wishlist/${product._id}`, {
       method: "DELETE",
       headers: {
         authorization: localStorage.getItem("token"),
@@ -50,17 +51,17 @@ export const AddToWishList = ({ product }) => {
   const isInWishList = state.wishList.some((item) => item._id === product._id);
 
   return (
-    <div>
+    <div className="food-content-wishlist">
       {isInWishList ? (
         <button
-          className="food-content-wishlist"
           style={{ color: "red" }}
           onClick={handleRemoveFromWishList}
+          className="food-content-wishlist"
         >
           <FontAwesomeIcon className="cart-wishlist-btn" icon={faHeart} />
         </button>
       ) : (
-        <button className="food-content-wishlist" onClick={handleAddToWishList}>
+        <button onClick={handleAddToWishList} className="food-content-wishlist">
           <FontAwesomeIcon className="cart-wishlist-btn" icon={faHeart} />
         </button>
       )}

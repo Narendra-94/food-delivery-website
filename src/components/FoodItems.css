@@ -125,14 +125,14 @@
   border-radius: 4px;
 }
 
-.food-card .food-content-wishlist {
+.food-content-wishlist {
   position: absolute;
   top: 0px;
   right: 0px;
   background: none;
   border: none;
   cursor: pointer;
-  width: 32px;
+  width: 2.5rem;
   background-color: #b468fa;
   display: flex;
   align-items: center;

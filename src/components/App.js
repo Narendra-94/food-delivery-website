@@ -19,6 +19,7 @@ import "../components/login.css";
 import "../components/Cart.css";
 
 import { FoodListContext } from "../context/FoodListContext";
+import { Checkout } from "./pages/Checkout";
 
 export const App = () => {
   const { state } = useContext(FoodListContext);
@@ -49,6 +50,7 @@ export const App = () => {
         <Route path="/foodItems" element={<FoodItems />} />
         <Route path="/foodItems/:id" element={<FoodInformation />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/mockman" element={<Mockman />} />
       </Routes>
     </>

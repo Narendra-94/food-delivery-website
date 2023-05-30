@@ -16,16 +16,16 @@
 }
 
 .cart-content {
+  position: relative;
   display: flex;
-  object-fit: cover;
   gap: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   border-radius: 0.475rem;
 }
 
 .image-container {
-  width: 15rem;
   position: relative;
+  width: 15rem;
   height: 15rem;
 }
 
@@ -38,8 +38,17 @@
   border-bottom-left-radius: 0.475rem;
 }
 
+.wishlist-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 0px;
+  border-bottom-left-radius: 0.475rem;
+}
+
 .card-image-tag-btn {
   position: absolute;
+  top: 0;
   right: 0;
   border-radius: 0;
   border-bottom-left-radius: 10px;
@@ -107,7 +116,7 @@
 }
 
 .cart-price-details {
-  padding: 1rem;
+  padding: 1rem 1rem 0rem 1rem;
   display: flex;
   flex-direction: column;
   width: 18rem;
@@ -148,6 +157,14 @@
 
 .checkout-button {
   margin-top: 1.5rem;
+}
+
+.checkout-button button {
+  width: 100%;
+}
+
+.decrement-button {
+  cursor: not-allowed;
 }
 
 /* Mobile Styles */

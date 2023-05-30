@@ -13,7 +13,7 @@ export const Login = () => {
   });
 
   const { state, dispatch } = useContext(FoodListContext);
-  const { token, setToken } = useContext(AuthContext);
+  const { setToken } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -30,6 +30,7 @@ export const Login = () => {
       body: JSON.stringify(creds),
     });
     const data = await response?.json();
+    console.log(data);
     if (data.encodedToken) {
       localStorage.setItem("token", data.encodedToken);
       navigate(location?.state?.from?.pathname || "/");

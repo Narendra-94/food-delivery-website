@@ -107,6 +107,12 @@ export const reducer = (state, action) => {
         cart: action.payload,
       };
     }
+    case "REMOVE_FROM_CART": {
+      return {
+        ...state,
+        cart: action.payload,
+      };
+    }
     case "ADD_TO_WISHLIST": {
       return {
         ...state,
@@ -114,16 +120,39 @@ export const reducer = (state, action) => {
       };
     }
     case "REMOVE_FROM_WISHLIST": {
-      console.log(action.payload, "payload");
-      const filterWishList = [...state.wishList]?.filter(
-        (item) => item._id !== action.payload._id
-      );
-      console.log(filterWishList, "filterWishList");
       return {
         ...state,
-        wishList: filterWishList,
+        wishList: action.payload,
       };
     }
+
+    case "INCREMENT_QUANTITY":
+      return {
+        ...state,
+        cart: state.cart.map((item) => {
+          if (item._id === action.payload) {
+            return {
+              ...item,
+              qty: item.qty + 1,
+            };
+          }
+          return item;
+        }),
+      };
+
+    case "DECREMENT_QUANTITY":
+      return {
+        ...state,
+        cart: state.cart.map((item) => {
+          if (item._id === action.payload) {
+            return {
+              ...item,
+              qty: item.qty > 1 ? item.qty - 1 : 1,
+            };
+          }
+          return item;
+        }),
+      };
 
     default:
       return state;

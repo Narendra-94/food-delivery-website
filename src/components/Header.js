@@ -42,7 +42,10 @@ export const Header = () => {
           <FontAwesomeIcon icon={faCartShopping} size="xl" />
         </Link>
 
-        <Link to="/wishList">
+        <Link to="/wishList" className="cart-icon-wrapper">
+          {state.wishList.length > 0 && token && (
+            <div className="cart-length">{state.wishList.length}</div>
+          )}
           <FontAwesomeIcon icon={faHeart} size="xl" />
         </Link>
       </div>
