@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FoodListContext } from "../context/FoodListContext";
 
 export const PageInformation = () => {
-  const { state, dispatch } = useContext(FoodListContext);
+  const { dispatch } = useContext(FoodListContext);
   return (
     <div className="home-page">
       <img src={deliverySlider} alt="" />
