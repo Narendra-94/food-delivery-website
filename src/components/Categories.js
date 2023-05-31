@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 
 import { Link } from "react-router-dom";
-import { HomeContext } from "../context/HomeContext";
 import { FoodListContext } from "../context/FoodListContext";
 
 export const Categories = () => {

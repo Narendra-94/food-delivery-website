@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { FoodListContext } from "../../context/FoodListContext";
 import { AuthContext } from "../../context/AuthContext";
 import { ProfileNavbar } from "../ProfileNavbar";
 import { ProfileContent } from "./ProfileContent";

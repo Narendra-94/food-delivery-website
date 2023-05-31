@@ -42,8 +42,7 @@ export const FoodContent = () => {
           <h1 className="count">Total Food Items: {filterRating.length}</h1>
           <div className="foodlist">
             {filterRating.map((product) => {
-              const { _id, title, description, price, url, isVegetarian } =
-                product;
+              const { _id, title, description, price, url } = product;
               return (
                 <div className="food-card" key={_id}>
                   <Link to={`/foodItems/${_id}`} className="food-items">
