@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { FoodListContext } from "../../context/FoodListContext";
 import { AuthContext } from "../../context/AuthContext";
+import { ProfileNavbar } from "../ProfileNavbar";
+import { ProfileContent } from "./ProfileContent";
 
 export const Profile = () => {
-  const { dispatch } = useContext(FoodListContext);
   const { setToken } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -15,9 +16,16 @@ export const Profile = () => {
   };
 
   return (
-    <div className="topToBody">
-      <h1>This is the Profile page</h1>
-      <button onClick={handleLogout}>Logout</button>
+    <div className="topToBody profile-outer-container">
+      <div className="profile-container">
+        <ProfileNavbar />
+
+        <div>
+          <ProfileContent />
+        </div>
+
+        <button onClick={handleLogout}>Logout</button>
+      </div>
     </div>
   );
 };

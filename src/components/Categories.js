@@ -6,14 +6,12 @@ import { FoodListContext } from "../context/FoodListContext";
 
 export const Categories = () => {
   const { state, dispatch } = useContext(FoodListContext);
-  // console.log(state, "in categories");
 
   const handleClickCategory = (categoryName) => {
     dispatch({
       type: "ON_CLICKING_CATEGORY",
       payload: categoryName,
     });
-    // console.log(categoryName, "categoryName from category");
   };
   return (
     <div className="food-categories">

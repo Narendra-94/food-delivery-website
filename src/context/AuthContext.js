@@ -6,9 +6,14 @@ export const AuthProvider = ({ children }) => {
   const encodedToken = localStorage.getItem("token");
 
   const [token, setToken] = useState(encodedToken || "");
+  const [profile, setProfile] = useState({
+    firstName: "",
+    email: "",
+    lastName: "",
+  });
 
   return (
-    <AuthContext.Provider value={{ token, setToken }}>
+    <AuthContext.Provider value={{ token, setToken, profile, setProfile }}>
       {children}
     </AuthContext.Provider>
   );

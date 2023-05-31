@@ -13,28 +13,32 @@ export const Login = () => {
   });
 
   const { state, dispatch } = useContext(FoodListContext);
-  const { setToken } = useContext(AuthContext);
+  const { setToken, profile, setProfile } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
-  // const handleLogin = () => {
-  //   dispatch({ type: "ON_CLICKING_GUEST_BUTTON" });
-  //   navigate(location?.state?.from?.pathname || "/");
-  // };
-
   const handleLoginGuest = async () => {
-    const creds = { email: "adarshbalika@gmail.com", password: "adarshbalika" };
+    const creds = {
+      email: "narenchordiya07@gmail.com",
+      password: "Naren@goResto",
+    };
     let response = await fetch("/api/auth/login", {
       method: "POST",
 
       body: JSON.stringify(creds),
     });
     const data = await response?.json();
-    console.log(data);
+    console.log(data.foundUser.email);
     if (data.encodedToken) {
       localStorage.setItem("token", data.encodedToken);
       navigate(location?.state?.from?.pathname || "/");
       setToken(data.encodedToken);
+      setProfile({
+        ...profile,
+        firstName: data.foundUser.firstName,
+        lastName: data.foundUser.lastName,
+        email: data.foundUser.email,
+      });
     }
   };
 

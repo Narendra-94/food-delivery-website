@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
 import { FoodListContext } from "../../context/FoodListContext";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { AddToWishList } from "../AddToWishList";
 import { RemoveFromCart } from "./RemoveFromCart";
 import { Link } from "react-router-dom";
@@ -23,7 +21,7 @@ export const Cart = () => {
       <div className="all-cart-cards">
         <div className="cart-card">
           {state.cart.map((product) => {
-            const { _id, title, price, url, quantity, qty } = product;
+            const { _id, title, price, url, qty } = product;
             return (
               <div className="cart-content" key={_id}>
                 <div className="image-container">

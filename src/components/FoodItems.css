@@ -88,17 +88,8 @@
 }
 
 .food-card {
-  /* display: flex;
-  flex-direction: column;
-  background-color: #f2f2f2;
-  border-radius: 4px;
-  padding: 10px;
-  overflow: hidden;
-  width: calc(33.33% - 20px);
-  flex-shrink: 0;
-  margin-bottom: 20px;
-  box-sizing: border-box;
-  align-items: flex-start; */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  height: 45%;
   position: relative;
 }
 

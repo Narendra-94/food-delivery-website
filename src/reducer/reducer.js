@@ -14,6 +14,16 @@ export const initialState = {
   showConfirmPassword: false,
   cart: [],
   wishList: [],
+  adresses: [
+    {
+      id: "1",
+      name: "Narendra Chordiya",
+      phone: "800771732",
+      city: "Pune",
+      pin: "411048",
+      addressText: "A-502, Majestique Navkaar,Kondhwa Bk",
+    },
+  ],
 };
 
 export const reducer = (state, action) => {

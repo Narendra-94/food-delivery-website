@@ -9,9 +9,9 @@ export const WishList = () => {
   console.log(state.wishList, "state.wishList");
 
   return (
-    <div className="topToBody cart-container">
+    <div className="topToBody wishlist-card">
       {state.wishList.map((product) => {
-        const { _id, title, description, price, url, isVegetarian } = product;
+        const { _id, title, description, price, url } = product;
         return (
           <div className="food-card" key={_id}>
             <Link to={`/foodItems/${_id}`} className="food-items">

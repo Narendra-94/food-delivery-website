@@ -2,14 +2,11 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FoodListContext } from "../context/FoodListContext";
 import { AddToCart } from "./AddToCart";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { AddToWishList } from "./AddToWishList";
 
 export const FoodContent = () => {
-  const { state, dispatch } = useContext(FoodListContext);
+  const { state } = useContext(FoodListContext);
 
-  // console.log(state, "state.category");
   const selectedCategory =
     state.category === ""
       ? state.foodList

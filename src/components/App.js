@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useContext } from "react";
+import React from "react";
 import { Routes, Route } from "react-router";
 import Mockman from "mockman-js";
 
@@ -17,12 +17,12 @@ import "../components/style.css";
 import "../components/FoodItems.css";
 import "../components/login.css";
 import "../components/Cart.css";
+import "../components/Wishlist.css";
+import "../components/Profile.css";
 
-import { FoodListContext } from "../context/FoodListContext";
 import { Checkout } from "./pages/Checkout";
 
 export const App = () => {
-  const { state } = useContext(FoodListContext);
   return (
     <>
       <Header />
