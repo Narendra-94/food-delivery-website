@@ -1,29 +1,21 @@
-import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
+import React from "react";
+import { Route, Routes, Link, useLocation } from "react-router-dom";
 import { ProfileNavbar } from "../ProfileNavbar";
-import { ProfileContent } from "./ProfileContent";
+import { ProfileInfo } from "../ProfileInfo";
+import { Address } from "../Address";
 
 export const Profile = () => {
-  const { setToken } = useContext(AuthContext);
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    localStorage.clear();
-    navigate("/login");
-    setToken("");
-  };
-
+  const location = useLocation();
   return (
     <div className="topToBody profile-outer-container">
       <div className="profile-container">
         <ProfileNavbar />
-
-        <div>
-          <ProfileContent />
-        </div>
-
-        <button onClick={handleLogout}>Logout</button>
+        <Routes>
+          <Route path="profile-information" element={<ProfileInfo />} />
+        </Routes>
+        <Routes>
+          <Route path="address" element={<Address />} />
+        </Routes>
       </div>
     </div>
   );

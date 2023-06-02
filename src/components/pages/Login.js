@@ -13,7 +13,10 @@ export const Login = () => {
   });
 
   const { state, dispatch } = useContext(FoodListContext);
-  const { setToken, profile, setProfile } = useContext(AuthContext);
+  const { setToken, profile, setProfile, signUpData } = useContext(AuthContext);
+
+  console.log(signUpData, "signUpData");
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -22,15 +25,16 @@ export const Login = () => {
       email: "narenchordiya07@gmail.com",
       password: "Naren@goResto",
     };
-    let response = await fetch("/api/auth/login", {
+    const response = await fetch("/api/auth/login", {
       method: "POST",
 
       body: JSON.stringify(creds),
     });
     const data = await response?.json();
-    console.log(data.foundUser.email);
+
     if (data.encodedToken) {
       localStorage.setItem("token", data.encodedToken);
+      localStorage.setItem("user", JSON.stringify(data.foundUser));
       navigate(location?.state?.from?.pathname || "/");
       setToken(data.encodedToken);
       setProfile({
@@ -40,6 +44,29 @@ export const Login = () => {
         email: data.foundUser.email,
       });
     }
+  };
+
+  const handleLogin = async () => {
+    const response = await fetch("/api/auth/login", {
+      method: "POST",
+      body: JSON.stringify({
+        email: userData.email,
+        password: userData.password,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+
+    localStorage.setItem("token", data.encodedToken);
+    localStorage.setItem("user", JSON.stringify(data.foundUser));
+    navigate(location?.state?.from?.pathname || "/");
+    setToken(data.encodedToken);
+    setProfile({
+      ...profile,
+      firstName: data.foundUser.firstName,
+      lastName: data.foundUser.lastName,
+      email: data.foundUser.email,
+    });
   };
 
   return (
@@ -80,7 +107,7 @@ export const Login = () => {
           </div>
 
           <div className="login-btn">
-            <button>Login</button>
+            <button onClick={handleLogin}>Login</button>
             <button onClick={handleLoginGuest}>Be My Guest</button>
           </div>
           <div>

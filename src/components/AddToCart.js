@@ -18,7 +18,7 @@ export const AddToCart = ({ product }) => {
       const response = await fetch("/api/user/cart", {
         method: "POST",
         headers: {
-          authorization: localStorage.getItem("token"),
+          authorization: token,
         },
         body: JSON.stringify({ product }),
       });

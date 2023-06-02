@@ -16,11 +16,11 @@ export const Cart = () => {
   return (
     <div className="topToBody cart-container">
       <div className="cart-container-header">
-        <h3>MY CART ({state.cart.length})</h3>
+        <h3>MY CART ({state?.cart?.length})</h3>
       </div>
       <div className="all-cart-cards">
         <div className="cart-card">
-          {state.cart.map((product) => {
+          {state?.cart?.map((product) => {
             const { _id, title, price, url, qty } = product;
             return (
               <div className="cart-content" key={_id}>
@@ -74,7 +74,7 @@ export const Cart = () => {
         <div className="cart-price-details">
           <h4>CART PRICE DETAILS</h4>
           <hr className="cart-price-details-hr" />
-          {state.cart.map(({ _id, title, price, quantity, qty }) => (
+          {state.cart.map(({ _id, title, price, qty }) => (
             <div className="cart-price-item" key={_id}>
               <p>
                 {title} ({qty})

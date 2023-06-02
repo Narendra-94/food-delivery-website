@@ -1,27 +1,123 @@
 .profile-outer-container {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
-  height: 50vh;
-  margin: 0 auto;
+  width: 100%;
+  height: fit-content;
+
   box-sizing: border-box;
+  justify-content: center;
 }
 
 .profile-container {
-  width: 90%;
-  height: 100%;
-  border: 1px solid black;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  min-height: 90%;
+  margin-bottom: 2rem;
+  width: 30%;
+  margin-top: 4rem;
 }
 
 .profile-navbar {
   display: flex;
-  justify-content: space-around;
-  background-color: #f6d600;
+  justify-content: space-between;
   height: 10%;
+  background-color: #f6d600;
+  align-items: center;
+  text-align: center;
 }
 
-.profile-navbar a {
+.profile-info-link {
+  display: flex;
+  /* background-color:; */
+  height: 100%;
+  width: 50%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.profile-nav-item {
+  padding: 1rem;
+  font-size: 1.25rem;
+  align-items: center;
   text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  width: 50%;
+}
+
+.nav-link-active {
+  background-color: var(--blue-200);
+  color: var(--primary-color);
+}
+
+.profile-details-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+  grid-gap: 1rem;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.profile-details-item {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  grid-gap: 1rem;
+}
+.profile-details-footer {
+  margin-top: 2rem;
+  margin-left: auto;
+}
+
+.profile-details-item-label {
+  color: #838b8d;
+}
+
+.list-stacked {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.address-list {
+  width: 100%;
+  border: none;
+}
+
+.list-stacked-item:last-of-type {
+  border-bottom: 2px dashed #f6d600;
+}
+
+.list-stacked-item {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border: 2px dashed #f6d600;
+  border-bottom: none;
+  flex-direction: column;
+}
+
+.list-stacked-item > * {
+  padding: 0.25rem;
+}
+
+.list-stacked-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.ph-no-section {
+  display: flex;
+  grid-gap: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-weight: 600;
 }

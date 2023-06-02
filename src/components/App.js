@@ -1,7 +1,6 @@
 import React from "react";
-import { Routes, Route } from "react-router";
+import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
-
 import { Home } from "./pages/Home";
 import { Cart } from "./pages/Cart";
 import { Login } from "./pages/Login";
@@ -12,21 +11,19 @@ import { FoodInformation } from "./pages/FoodInformation";
 import { SignUp } from "./pages/SignUp";
 import { RequiresAuth } from "./RequiresAuth";
 import { Profile } from "./pages/Profile";
-
+import { Checkout } from "./pages/Checkout";
 import "../components/style.css";
 import "../components/FoodItems.css";
 import "../components/login.css";
 import "../components/Cart.css";
 import "../components/Wishlist.css";
 import "../components/Profile.css";
-
-import { Checkout } from "./pages/Checkout";
+import "../components/Address.css";
 
 export const App = () => {
   return (
     <>
       <Header />
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -49,7 +46,7 @@ export const App = () => {
         />
         <Route path="/foodItems" element={<FoodItems />} />
         <Route path="/foodItems/:id" element={<FoodInformation />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/*" element={<Profile />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/mockman" element={<Mockman />} />
       </Routes>

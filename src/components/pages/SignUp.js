@@ -1,15 +1,57 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FoodListContext } from "../../context/FoodListContext";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-regular-svg-icons";
 import { faEyeSlash } from "@fortawesome/free-regular-svg-icons";
+import { AuthContext } from "../../context/AuthContext";
 
 export const SignUp = () => {
   const { state, dispatch } = useContext(FoodListContext);
+  const { profile, setProfile, setToken, signUpData, setSignUpData } =
+    useContext(AuthContext);
 
-  console.log(state.showPassword);
+  const navigate = useNavigate();
+
+  const handleInput = (e, fieldName) => {
+    const { value } = e.target;
+    setSignUpData((prevData) => ({
+      ...prevData,
+      [fieldName]: value,
+    }));
+  };
+
+  const handleSignUp = async () => {
+    if (signUpData.password === signUpData.confirmPassword) {
+      try {
+        const response = await fetch("/api/auth/signup", {
+          method: "POST",
+          body: JSON.stringify({
+            firstName: signUpData.name,
+            lastName: signUpData.name,
+            email: signUpData.email,
+            password: signUpData.password,
+          }),
+        });
+        const data = await response.json();
+        localStorage.setItem("token", data.encodedToken);
+        localStorage.setItem("user", JSON.stringify(data.createdUser));
+        setToken(data.encodedToken);
+        navigate("/");
+        setProfile({
+          ...profile,
+          firstName: data.createdUser.firstName,
+          lastName: data.createdUser.lastName,
+          email: data.createdUser.email,
+        });
+      } catch (err) {
+        alert(err);
+      }
+    } else {
+      alert("Passwords don't match");
+    }
+  };
 
   return (
     <div className="login-page">
@@ -17,15 +59,27 @@ export const SignUp = () => {
         <div className="login-details">
           <h1>Sign Up</h1>
           <label>Name</label>
-          <input type="text" placeholder="Mr. Foodie" />
+          <input
+            value={signUpData.name}
+            type="text"
+            placeholder="Mr. Foodie"
+            onChange={(e) => handleInput(e, "name")}
+          />
           <label>Email address</label>
-          <input type="text" placeholder="xyz@goResto@gmail.com" />
+          <input
+            value={signUpData.email}
+            type="text"
+            placeholder="xyz@goResto@gmail.com"
+            onChange={(e) => handleInput(e, "email")}
+          />
           <div className="login-password">
             <label>Password</label>
             <div className="signup-password-input-container">
               <input
+                value={signUpData.password}
                 type={state.showPassword ? "text" : "password"}
                 placeholder="Enter password"
+                onChange={(e) => handleInput(e, "password")}
               />
 
               <span
@@ -39,9 +93,11 @@ export const SignUp = () => {
               </span>
               <label>Confirm Password</label>
               <input
+                value={signUpData.confirmPassword}
                 type={state.showConfirmPassword ? "text" : "password"}
                 placeholder="Confirm password"
                 id="confirm-password-input"
+                onChange={(e) => handleInput(e, "confirmPassword")}
               />
               <span
                 className="eye-show-confirm-password"
@@ -58,7 +114,7 @@ export const SignUp = () => {
           </div>
 
           <div className="login-btn">
-            <button>Create New Account</button>
+            <button onClick={handleSignUp}>Create New Account</button>
           </div>
           <div>
             Already have an account? <Link to="/login">Sign In</Link>

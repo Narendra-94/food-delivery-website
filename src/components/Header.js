@@ -36,7 +36,7 @@ export const Header = () => {
           <Link to="/login">Login</Link>
         )}
         <Link to="/cart" className="cart-icon-wrapper">
-          {state.cart.length > 0 && token && (
+          {state?.cart?.length > 0 && token && (
             <div className="cart-length">{state.cart.length}</div>
           )}
           <FontAwesomeIcon icon={faCartShopping} size="xl" />

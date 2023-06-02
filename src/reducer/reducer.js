@@ -1,3 +1,5 @@
+import { v4 as uuid } from "uuid";
+
 export const initialState = {
   foodHome: [],
   isSlide: false,
@@ -14,14 +16,61 @@ export const initialState = {
   showConfirmPassword: false,
   cart: [],
   wishList: [],
-  adresses: [
+  isEdit: false,
+  isAdded: false,
+  editAddressId: null,
+
+  addresses: [
     {
-      id: "1",
+      id: uuid(),
       name: "Narendra Chordiya",
       phone: "800771732",
       city: "Pune",
       pin: "411048",
+      state: "Maharashtra",
       addressText: "A-502, Majestique Navkaar,Kondhwa Bk",
+    },
+  ],
+  demoAddress: [
+    {
+      id: uuid(),
+      name: "John",
+      phone: "123456",
+      city: "New York",
+      pin: "12345",
+      addressText: "123 Main St",
+    },
+    {
+      id: uuid(),
+      name: "Alice",
+      phone: "987654",
+      city: "London",
+      pin: "54321",
+      addressText: "456 Park Ave",
+    },
+    {
+      id: uuid(),
+      name: "Michael",
+      phone: "456789",
+      city: "Paris",
+      pin: "78910",
+      addressText: "789 Rue de la Paix",
+    },
+    {
+      id: uuid(),
+      name: "Sarah",
+      phone: "654321",
+      city: "Sydney",
+      pin: "54321",
+      addressText: "321 Beach Rd",
+    },
+    {
+      id: uuid(),
+      name: "David",
+      phone: "987654",
+      city: "Tokyo",
+      pin: "12345",
+      addressText: "456 Sakura St",
     },
   ],
 };
@@ -163,6 +212,88 @@ export const reducer = (state, action) => {
           return item;
         }),
       };
+
+    case "ADDRESS_EDIT_BUTTON_CLICKED":
+      return {
+        ...state,
+        editAddressId: action.payload,
+      };
+
+    case "ADD_ADDRESS_BUTTON_CLICKED":
+      return {
+        ...state,
+        isAdded: true,
+      };
+
+    case "ADDRESS_CANCEL_BUTTON_CLICKED": {
+      return {
+        ...state,
+        editAddressId: null,
+        isAdded: false,
+      };
+    }
+
+    case "UPDATE_TO_ADDRESS": {
+      const updateAddress = state.addresses.map((address) => {
+        if (address.id === action.payload.id) {
+          return {
+            ...address,
+            name: action.payload.name,
+            phone: action.payload.phone,
+            city: action.payload.city,
+            pin: action.payload.pin,
+            addressText: action.payload.addressText,
+          };
+        }
+        return address;
+      });
+      return {
+        ...state,
+        editAddressId: null,
+        addresses: updateAddress,
+      };
+    }
+
+    case "ADD_TO_ADDRESS": {
+      console.log(action.payload);
+      return {
+        ...state,
+        isAdded: false,
+        addresses: [...state.addresses, action.payload],
+      };
+    }
+
+    // case "RESET_ADDRESS": {
+    //   const resetAddresses = state.addresses.map((address) => {
+    //     console.log(action.payload, "addres id");
+    //     if (address.id === action.payload.id) {
+    //       return {
+    //         ...address,
+    //         name: "",
+    //         phone: "",
+    //         city: "",
+    //         pin: "",
+    //         addressText: "",
+    //       };
+    //     }
+    //     return address;
+    //   });
+
+    //   return {
+    //     ...state,
+    //     addresses: resetAddresses,
+    //   };
+    // }
+
+    case "ADDRESS_DELETE_BUTTON_CLICKED": {
+      const filteredAddresses = state.addresses.filter(
+        (address) => address.id !== action.payload
+      );
+      return {
+        ...state,
+        addresses: filteredAddresses,
+      };
+    }
 
     default:
       return state;

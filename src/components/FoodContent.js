@@ -33,7 +33,7 @@ export const FoodContent = () => {
 
   return (
     <div className="food-content">
-      {filterRating.length === 0 ? (
+      {filterRating?.length === 0 ? (
         <h1 className="no-products">
           No products found within the selected price range.
         </h1>
