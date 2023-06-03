@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
@@ -27,7 +27,9 @@ export const ProfileInfo = () => {
         <p>{profile.email}</p>
       </div>
       <div className="profile-details-footer">
-        <button onClick={handleLogout}>Logout</button>
+        <button className="logout-btn" onClick={handleLogout}>
+          Logout
+        </button>
       </div>
     </div>
   );

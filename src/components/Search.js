@@ -1,19 +1,44 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { FoodListContext } from "../context/FoodListContext";
+import { Link } from "react-router-dom";
 
 export const Search = () => {
   const { state, dispatch } = useContext(FoodListContext);
+  const searchContainerRef = useRef(null);
 
   const filteredFoodList = state.foodList.filter(({ title }) =>
     title.toLowerCase().includes(state.inputValue.toLowerCase())
   );
 
+  const handleWindowClick = (event) => {
+    if (
+      searchContainerRef.current &&
+      !searchContainerRef.current.contains(event.target)
+    ) {
+      dispatch({ type: "CLOSE_SEARCH" });
+    }
+  };
+
+  const clearInputValue = () => {
+    dispatch({ type: "CLOSE_SEARCH" });
+  };
+
+  useEffect(() => {
+    window.addEventListener("click", handleWindowClick);
+
+    return () => {
+      window.removeEventListener("click", handleWindowClick);
+    };
+  }, []);
+
   return (
-    <div className="input-search">
+    <div className="input-search" ref={searchContainerRef}>
       <input
         onChange={(e) =>
           dispatch({ type: "SEARCH_DATA", payload: e.target.value })
         }
+        onClick={clearInputValue} // Add onClick event handler to clear the input value
+        value={state.inputValue} // Set the input value from the state
         type="search"
         placeholder="type here..."
       />
@@ -24,7 +49,12 @@ export const Search = () => {
             <p className="no-data-found">No data found</p>
           ) : (
             filteredFoodList.map(({ _id, title, url, price, description }) => (
-              <div className="search-output-item" key={_id}>
+              <Link
+                to={`/foodItems/${_id}`}
+                className="search-output-item"
+                key={_id}
+                onClick={clearInputValue} // Add onClick event handler to clear the input value
+              >
                 <img src={url} alt="" className="search-output-item-image" />
                 <div className="search-output-item-details">
                   <div className="search-output-item-upper">
@@ -37,7 +67,7 @@ export const Search = () => {
                     <p className="text-md">{description}</p>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))
           )}
         </div>

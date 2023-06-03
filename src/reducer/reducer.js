@@ -19,6 +19,7 @@ export const initialState = {
   isEdit: false,
   isAdded: false,
   editAddressId: null,
+  selectedAddressId: null,
 
   addresses: [
     {
@@ -27,7 +28,7 @@ export const initialState = {
       phone: "800771732",
       city: "Pune",
       pin: "411048",
-      state: "Maharashtra",
+      profileState: "Maharashtra",
       addressText: "A-502, Majestique Navkaar,Kondhwa Bk",
     },
   ],
@@ -35,42 +36,47 @@ export const initialState = {
     {
       id: uuid(),
       name: "John",
-      phone: "123456",
-      city: "New York",
-      pin: "12345",
+      phone: "7898343210",
+      city: "Banglore",
+      pin: "9844657651",
       addressText: "123 Main St",
+      profileState: "Karnataka",
     },
     {
       id: uuid(),
       name: "Alice",
-      phone: "987654",
-      city: "London",
+      phone: "987654132",
+      city: "Amritsar",
       pin: "54321",
       addressText: "456 Park Ave",
+      profileState: "Punjab",
     },
     {
       id: uuid(),
       name: "Michael",
-      phone: "456789",
-      city: "Paris",
+      phone: "7788956470",
+      city: "Albany",
       pin: "78910",
       addressText: "789 Rue de la Paix",
+      profileState: "New York",
     },
     {
       id: uuid(),
       name: "Sarah",
-      phone: "654321",
-      city: "Sydney",
+      phone: "7800843233",
+      city: "Glebe ",
       pin: "54321",
       addressText: "321 Beach Rd",
+      profileState: "Sydney State",
     },
     {
       id: uuid(),
       name: "David",
-      phone: "987654",
-      city: "Tokyo",
+      phone: "9876541234",
+      city: "Yokohama",
       pin: "12345",
       addressText: "456 Sakura St",
+      profileState: "Tokyo State",
     },
   ],
 };
@@ -136,15 +142,17 @@ export const reducer = (state, action) => {
       };
     }
 
+    case "CLOSE_SEARCH": {
+      return {
+        ...state,
+        inputValue: "",
+        isSearchOpen: false,
+      };
+    }
+
     case "ON_CLICKING_CATEGORY": {
       return {
         ...state,
-        initialPrice: "500",
-        showVeg: false,
-        showNonVeg: false,
-        selectedRating: false,
-        sortBy: null,
-        category: action.payload,
       };
     }
 
@@ -242,6 +250,7 @@ export const reducer = (state, action) => {
             phone: action.payload.phone,
             city: action.payload.city,
             pin: action.payload.pin,
+            profileState: action.payload.profileState,
             addressText: action.payload.addressText,
           };
         }
@@ -263,28 +272,6 @@ export const reducer = (state, action) => {
       };
     }
 
-    // case "RESET_ADDRESS": {
-    //   const resetAddresses = state.addresses.map((address) => {
-    //     console.log(action.payload, "addres id");
-    //     if (address.id === action.payload.id) {
-    //       return {
-    //         ...address,
-    //         name: "",
-    //         phone: "",
-    //         city: "",
-    //         pin: "",
-    //         addressText: "",
-    //       };
-    //     }
-    //     return address;
-    //   });
-
-    //   return {
-    //     ...state,
-    //     addresses: resetAddresses,
-    //   };
-    // }
-
     case "ADDRESS_DELETE_BUTTON_CLICKED": {
       const filteredAddresses = state.addresses.filter(
         (address) => address.id !== action.payload
@@ -293,6 +280,10 @@ export const reducer = (state, action) => {
         ...state,
         addresses: filteredAddresses,
       };
+    }
+
+    case "SELECT_ADDRESS": {
+      return { ...state, selectedAddressId: action.payload };
     }
 
     default:

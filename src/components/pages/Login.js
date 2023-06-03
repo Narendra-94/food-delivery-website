@@ -83,6 +83,7 @@ export const Login = () => {
             onChange={(e) =>
               setUserData({ ...userData, email: e.target.value })
             }
+            required
           />
 
           <label>Password</label>
@@ -94,6 +95,7 @@ export const Login = () => {
               onChange={(e) =>
                 setUserData({ ...userData, password: e.target.value })
               }
+              required
             />
             <span
               className="login-eye"

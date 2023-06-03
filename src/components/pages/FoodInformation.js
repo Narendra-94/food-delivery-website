@@ -2,7 +2,9 @@ import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { FoodListContext } from "../../context/FoodListContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { AddToWishList } from "../AddToWishList";
+import { AddToCart } from "../AddToCart";
 
 export const FoodInformation = () => {
   const { state } = useContext(FoodListContext);
@@ -10,46 +12,46 @@ export const FoodInformation = () => {
   const { id } = useParams();
 
   const foodInformation = state.foodList.find(({ _id }) => id === _id);
-  console.log(foodInformation.url);
+  console.log(foodInformation);
 
   return (
-    <main className="topToBody product-details-main">
-      <h1>Movie</h1>
-      <div className="product-details-img-container">
-        <img
-          className=" prod-details-img"
-          alt="food-img"
-          src={foodInformation.url}
-        />
-
-        <button className="card-img-tag-btn productlist-card-img-tag-btn-container prod-details-img-tag">
-          <FontAwesomeIcon icon={faHeart} />
-        </button>
-        <div>
-          <i class="fas fa-star"></i>
-          <p>{foodInformation.rating}</p>
+    <div className="topToBody productlist-container">
+      <div className="product-details-main">
+        <div className="product-details-image">
+          <img src={foodInformation.url} alt="" />
+          <div className="wishlist-container">
+            <div className="food-content-wishlist">
+              <AddToWishList product={foodInformation} />
+            </div>
+          </div>
+          <div
+            className="rating-container"
+            style={
+              foodInformation.isVegetarian
+                ? { backgroundColor: "green" }
+                : { backgroundColor: "red" }
+            }
+          >
+            <FontAwesomeIcon icon={faStar} size="lg" />{" "}
+            <span>{foodInformation.rating}</span>
+          </div>
         </div>
-      </div>
-      <div className="product-details-text-container">
-        <h2 className="product-details-header">{foodInformation.title}</h2>
-        <div class="product-price-container">
-          <p class="text-xl font-wt-semibold product-price">
-            {foodInformation.price}
+        <div className="product-details-container">
+          <h1>{foodInformation.title}</h1>
+          <p className="food-price ">₹{foodInformation.price}</p>
+          <hr />
+          <p className="food-description">
+            <b>Description :</b>
+            {foodInformation.description}
           </p>
-          <p class="text-xl font-wt-semibold product-original-price">₹699</p>
-          <p class="product-card-discount text-lg font-wt-semibold">45% OFF</p>
+          <p className="food-description">
+            Restaurant : {foodInformation.restaurant}
+          </p>
+          <div className="food-button">
+            <AddToCart product={foodInformation} />
+          </div>
         </div>
       </div>
-      <hr />
-      <p>
-        <span>Description</span>
-        <span> {foodInformation.description}</span>
-      </p>
-      <div class="product-details-footer">
-        <button class="btn btn-primary brd-rd-semi-sq outlined-primary">
-          Add to cart
-        </button>
-      </div>
-    </main>
+    </div>
   );
 };

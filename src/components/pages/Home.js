@@ -3,7 +3,7 @@ import { Footer } from "../Footer";
 import { Categories } from "../Categories";
 import { PageInformation } from "../PageInformation";
 
-export const Home = () => {
+const Home = () => {
   return (
     <div className="content">
       <PageInformation />
@@ -12,3 +12,5 @@ export const Home = () => {
     </div>
   );
 };
+
+export default Home;

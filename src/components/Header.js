@@ -29,7 +29,7 @@ export const Header = () => {
 
       <div className="user-auth">
         {token ? (
-          <Link to="/profile">
+          <Link to="/profile/profile-information">
             <FontAwesomeIcon icon={faUser} size="xl" />
           </Link>
         ) : (

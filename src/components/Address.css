@@ -17,21 +17,22 @@
   align-items: center;
   gap: 2rem;
   width: 90%;
-
-  border: 2px solid #f6d600;
+  border: 2px solid #7149c6;
   padding: 0.75rem;
   border-radius: 0.25rem;
   cursor: pointer;
   margin-top: 1.25rem;
+  margin: auto;
+  margin-bottom: 1.2rem;
 }
 
 .add-address-btn {
   padding: 0.5rem 0.75rem;
   font-size: 1rem;
   font-weight: 600;
-  background-color: #f6d600;
+  background-color: #7149c6;
   color: white;
-  border: 0.125rem solid #f6d600;
+  border: 0.125rem solid #7149c6;
   margin: 0;
 }
 

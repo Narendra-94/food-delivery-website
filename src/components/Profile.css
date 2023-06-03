@@ -21,9 +21,10 @@
   display: flex;
   justify-content: space-between;
   height: 10%;
-  background-color: #f6d600;
+  background-color: #7149c6;
   align-items: center;
   text-align: center;
+  padding: 0 1rem;
 }
 
 .profile-info-link {
@@ -89,35 +90,64 @@
 }
 
 .list-stacked-item:last-of-type {
-  border-bottom: 2px dashed #f6d600;
+  border-bottom: 2px dashed #7149c6;
 }
 
 .list-stacked-item {
   display: flex;
   gap: 0.5rem;
-  padding: 0.75rem;
-  border: 2px dashed #f6d600;
+  border: 2px dashed #7149c6;
   border-bottom: none;
   flex-direction: column;
-}
-
-.list-stacked-item > * {
-  padding: 0.25rem;
 }
 
 .list-stacked-heading {
   display: flex;
   justify-content: space-between;
-  gap: 2rem;
   align-items: center;
   font-weight: 700;
   font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.ph-no-section {
+.ph-no-city-section,
+.pin-state-section {
   display: flex;
-  grid-gap: 1rem;
   gap: 1rem;
-  flex-wrap: wrap;
+  align-items: center;
+
+  margin-bottom: 1rem;
+}
+
+.address-section {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.address-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.list-stacked-item {
+  padding: 1.25rem;
+}
+
+.address-footer button {
+  flex-grow: 1;
+  font-size: 1rem;
   font-weight: 600;
+  background-color: #7149c6;
+}
+
+.list-stacked-item {
+  font-size: 20px;
+}
+
+.logout-btn {
+  background-color: red;
+  font-size: 18px;
+  font-weight: bold;
 }

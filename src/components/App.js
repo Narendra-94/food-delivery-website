@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
-import { Home } from "./pages/Home";
+
 import { Cart } from "./pages/Cart";
 import { Login } from "./pages/Login";
 import { WishList } from "./pages/Wishlist";
@@ -19,13 +19,30 @@ import "../components/Cart.css";
 import "../components/Wishlist.css";
 import "../components/Profile.css";
 import "../components/Address.css";
+import "../components/AddressForm.css";
+import "../components/Checkout.css";
+import "../components/FoodInformation.css";
+
+const Home = lazy(
+  () =>
+    new Promise((resolve) =>
+      setTimeout(() => resolve(import("./pages/Home")), 3000)
+    )
+);
 
 export const App = () => {
   return (
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <Suspense fallback={<h1 className="topToBody">Loading...</h1>}>
+              <Home />
+            </Suspense>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route

@@ -15,6 +15,13 @@ export const Address = () => {
     });
   };
 
+  const handleEditAddress = (id) => {
+    dispatch({
+      type: "ADDRESS_EDIT_BUTTON_CLICKED",
+      payload: id,
+    });
+  };
+
   return (
     <div className="address-outer-container">
       <div className="address-header">
@@ -30,7 +37,7 @@ export const Address = () => {
                 phone: "",
                 city: "",
                 pin: "",
-                state: "",
+                profileState: "",
                 addressText: "",
               }}
             />
@@ -49,40 +56,48 @@ export const Address = () => {
 
         <ul className="list-stacked address-list">
           {state.addresses.map((details) => {
-            const { id, name, phone, city, pin, addressText, state } = details;
+            const { id, name, phone, city, pin, addressText, profileState } =
+              details;
+
             const isEditing = state.editAddressId === id;
 
             return (
-              <li
-                key={id}
-                className="list-stacked-item address-list-stacked-item"
-              >
+              <div className="controller-container">
                 {isEditing ? (
                   <AddressForm details={details} />
                 ) : (
-                  <>
-                    <h3 className="list-stacked-heading ">{name}</h3>
-                    <p className="ph-no-section">{phone}</p>
-                    <p>{city}</p>
-                    <p>{pin}</p>
-                    <p>{state}</p>
-                    <p>Address:{addressText}</p>
-                    <button
-                      onClick={() =>
-                        dispatch({
-                          type: "ADDRESS_EDIT_BUTTON_CLICKED",
-                          payload: id,
-                        })
-                      }
-                    >
-                      Edit
-                    </button>
-                    <button onClick={() => handleDeleteAddress(id)}>
-                      Delete
-                    </button>
-                  </>
+                  <div>
+                    <div className="list-stacked-heading">
+                      <h3>{name}</h3>
+                    </div>
+                    <div className="ph-no-city-section">
+                      <p>{phone}</p>
+                      <p>{city}</p>
+                    </div>
+                    <div className="pin-state-section">
+                      <p>
+                        <b>Pin:</b> {pin}
+                      </p>
+                      <p>
+                        <b>State:</b> {profileState}
+                      </p>
+                    </div>
+                    <div className="address-section">
+                      <p>
+                        <b>Address:</b>: {addressText}
+                      </p>
+                    </div>
+                    <div className="address-footer">
+                      <button onClick={() => handleEditAddress(id)}>
+                        Edit
+                      </button>
+                      <button onClick={() => handleDeleteAddress(id)}>
+                        Delete
+                      </button>
+                    </div>
+                  </div>
                 )}
-              </li>
+              </div>
             );
           })}
         </ul>

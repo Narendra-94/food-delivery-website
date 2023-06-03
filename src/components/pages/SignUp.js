@@ -64,6 +64,7 @@ export const SignUp = () => {
             type="text"
             placeholder="Mr. Foodie"
             onChange={(e) => handleInput(e, "name")}
+            required
           />
           <label>Email address</label>
           <input

@@ -179,6 +179,8 @@ input:focus {
   gap: 1rem;
   width: 100%;
   cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 .search-output-item-image {
   width: 9rem;
