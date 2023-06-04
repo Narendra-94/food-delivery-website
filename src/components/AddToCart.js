@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { FoodListContext } from "../context/FoodListContext";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const AddToCart = ({ product }) => {
   const { state, dispatch } = useContext(FoodListContext);
@@ -9,6 +10,17 @@ export const AddToCart = ({ product }) => {
   const navigate = useNavigate();
 
   const handleAddToCart = async () => {
+    toast.success("Successfully added to the cart", {
+      autoClose: 1000,
+      position: "bottom-right",
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+
     try {
       if (!token) {
         navigate("/login");

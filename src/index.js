@@ -8,6 +8,7 @@ import { makeServer } from "./server";
 import { HomeProvider } from "./context/HomeContext";
 import { FoodListProvider } from "./context/FoodListContext";
 import { AuthProvider } from "./context/AuthContext";
+import { ErrorProvider } from "./context/ErrorContext";
 
 // Call make Server
 makeServer();
@@ -19,7 +20,9 @@ root.render(
       <AuthProvider>
         <HomeProvider>
           <FoodListProvider>
-            <App />
+            <ErrorProvider>
+              <App />
+            </ErrorProvider>
           </FoodListProvider>
         </HomeProvider>
       </AuthProvider>

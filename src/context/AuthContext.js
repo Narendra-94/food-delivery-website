@@ -8,7 +8,8 @@ export const AuthProvider = ({ children }) => {
   console.log(user, "from local");
   const [token, setToken] = useState(encodedToken || "");
   const [signUpData, setSignUpData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
     confirmPassword: "",

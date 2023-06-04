@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEyeSlash, faEye } from "@fortawesome/free-regular-svg-icons";
 import { FoodListContext } from "../../context/FoodListContext";
 import { AuthContext } from "../../context/AuthContext";
+import { ErrorContext } from "../../context/ErrorContext";
 
 export const Login = () => {
   const [userData, setUserData] = useState({
@@ -12,14 +16,13 @@ export const Login = () => {
     password: "",
   });
 
+  const { errors, setErrors } = useContext(ErrorContext);
+
   const { state, dispatch } = useContext(FoodListContext);
   const { setToken, profile, setProfile, signUpData } = useContext(AuthContext);
 
-  console.log(signUpData, "signUpData");
-
   const navigate = useNavigate();
   const location = useLocation();
-
   const handleLoginGuest = async () => {
     const creds = {
       email: "narenchordiya07@gmail.com",
@@ -27,7 +30,6 @@ export const Login = () => {
     };
     const response = await fetch("/api/auth/login", {
       method: "POST",
-
       body: JSON.stringify(creds),
     });
     const data = await response?.json();
@@ -47,6 +49,21 @@ export const Login = () => {
   };
 
   const handleLogin = async () => {
+    const validationErrors = {};
+
+    if (!userData.email) {
+      validationErrors.email = "Email is required";
+    }
+
+    if (!userData.password) {
+      validationErrors.password = "Password is required";
+    }
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
     const response = await fetch("/api/auth/login", {
       method: "POST",
       body: JSON.stringify({
@@ -54,21 +71,34 @@ export const Login = () => {
         password: userData.password,
       }),
     });
+
     const data = await response.json();
     console.log(data);
 
-    localStorage.setItem("token", data.encodedToken);
-    localStorage.setItem("user", JSON.stringify(data.foundUser));
-    navigate(location?.state?.from?.pathname || "/");
-    setToken(data.encodedToken);
-    setProfile({
-      ...profile,
-      firstName: data.foundUser.firstName,
-      lastName: data.foundUser.lastName,
-      email: data.foundUser.email,
-    });
+    if (data.encodedToken) {
+      localStorage.setItem("token", data.encodedToken);
+      localStorage.setItem("user", JSON.stringify(data.foundUser));
+      navigate(location?.state?.from?.pathname || "/");
+      setToken(data.encodedToken);
+      setProfile({
+        ...profile,
+        firstName: data.foundUser.firstName,
+        lastName: data.foundUser.lastName,
+        email: data.foundUser.email,
+      });
+    } else {
+      toast.error("Wrong Credentials", {
+        autoClose: 1000,
+        position: "top-right",
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    }
   };
-
   return (
     <div className="login-page">
       <div className="login-container">
@@ -85,6 +115,7 @@ export const Login = () => {
             }
             required
           />
+          {errors.email && <span className="error">{errors.email}</span>}
 
           <label>Password</label>
           <div className="password-input-container">
@@ -97,6 +128,9 @@ export const Login = () => {
               }
               required
             />
+            {errors.password && (
+              <span className="error">{errors.password}</span>
+            )}
             <span
               className="login-eye"
               onClick={() => dispatch({ type: "ON_CLICKING_SHOW_PASSWORD" })}

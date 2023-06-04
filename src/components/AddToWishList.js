@@ -4,6 +4,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FoodListContext } from "../context/FoodListContext";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const AddToWishList = ({ product }) => {
   const { state, dispatch } = useContext(FoodListContext);
@@ -11,6 +12,17 @@ export const AddToWishList = ({ product }) => {
   const navigate = useNavigate();
 
   const handleAddToWishList = async () => {
+    toast.success("Successfully added to Wishlist", {
+      autoClose: 1000,
+      position: "bottom-right",
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+
     try {
       if (!token) {
         navigate("/login");
@@ -35,6 +47,17 @@ export const AddToWishList = ({ product }) => {
   };
 
   const handleRemoveFromWishList = async () => {
+    toast.warning("Removed from  Wishlist", {
+      autoClose: 1000,
+      position: "bottom-right",
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+
     const response = await fetch(`/api/user/wishlist/${product._id}`, {
       method: "DELETE",
       headers: {

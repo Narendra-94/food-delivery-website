@@ -9,6 +9,20 @@
   box-sizing: border-box;
 }
 
+.empty-wishlist {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  color: #6912ba;
+  height: 70vh;
+}
+
+.empty-wishlist img {
+  width: 260px;
+}
+
 @media (max-width: 768px) {
   /* Styles for tablet */
   .wishlist-card {

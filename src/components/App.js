@@ -2,6 +2,7 @@ import React, { useState, useEffect, lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
 
+import Home from "./pages/Home";
 import { Cart } from "./pages/Cart";
 import { Login } from "./pages/Login";
 import { WishList } from "./pages/Wishlist";
@@ -23,26 +24,26 @@ import "../components/AddressForm.css";
 import "../components/Checkout.css";
 import "../components/FoodInformation.css";
 
-const Home = lazy(
-  () =>
-    new Promise((resolve) =>
-      setTimeout(() => resolve(import("./pages/Home")), 3000)
-    )
-);
+import { Loader } from "./Loader";
+import { Error } from "./pages/Error";
+import { ToastContainer } from "react-toastify";
 
 export const App = () => {
+  const [isLoader, setIsLoader] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoader(false);
+    }, 2000);
+  }, []);
+
   return (
     <>
+      {isLoader && <Loader />}
+      <ToastContainer />
       <Header />
+
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Suspense fallback={<h1 className="topToBody">Loading...</h1>}>
-              <Home />
-            </Suspense>
-          }
-        />
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route
@@ -66,6 +67,7 @@ export const App = () => {
         <Route path="/profile/*" element={<Profile />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/mockman" element={<Mockman />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </>
   );

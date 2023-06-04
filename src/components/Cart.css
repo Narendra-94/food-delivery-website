@@ -195,6 +195,16 @@
   }
 }
 
+.empty-cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  color: #6912ba;
+  height: 70vh;
+}
+
 /* Tablet Styles */
 @media (min-width: 768px) and (max-width: 1023px) {
   .cart-card {

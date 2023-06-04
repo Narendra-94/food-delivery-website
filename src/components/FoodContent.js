@@ -1,11 +1,20 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { FoodListContext } from "../context/FoodListContext";
 import { AddToCart } from "./AddToCart";
 import { AddToWishList } from "./AddToWishList";
+import { Loader } from "./Loader";
+import { ToastContainer } from "react-toastify";
 
 export const FoodContent = () => {
   const { state } = useContext(FoodListContext);
+
+  const [isLoader, setIsLoader] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoader(false);
+    }, 2000);
+  }, []);
 
   const selectedCategory =
     state.category === ""
@@ -33,6 +42,8 @@ export const FoodContent = () => {
 
   return (
     <div className="food-content">
+      <ToastContainer />
+      {isLoader && <Loader />}
       {filterRating?.length === 0 ? (
         <h1 className="no-products">
           No products found within the selected price range.
