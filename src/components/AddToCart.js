@@ -10,16 +10,17 @@ export const AddToCart = ({ product }) => {
   const navigate = useNavigate();
 
   const handleAddToCart = async () => {
-    toast.success("Successfully added to the cart", {
-      autoClose: 1000,
-      position: "bottom-right",
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
+    token &&
+      toast.success("Successfully added to the cart", {
+        autoClose: 1000,
+        position: "bottom-right",
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
 
     try {
       if (!token) {
