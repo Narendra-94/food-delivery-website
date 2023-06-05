@@ -29,7 +29,7 @@ export const initialState = {
       city: "Pune",
       pin: "411048",
       profileState: "Maharashtra",
-      addressText: "A-502, Majestique Navkaar,Kondhwa Bk",
+      addressText: " Majestique Navkaar,Kondhwa Bk",
     },
   ],
   demoAddress: [
