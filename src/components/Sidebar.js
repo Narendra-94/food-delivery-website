@@ -15,7 +15,10 @@ export const Sidebar = () => {
         <aside className="sidebar-container">
           <div className="sidebar-header">
             <b>Filters</b>
-            <span onClick={() => dispatch({ type: "ON_CLICKING_CLEAR" })}>
+            <span
+              onClick={() => dispatch({ type: "ON_CLICKING_CLEAR" })}
+              className="clear"
+            >
               Clear
             </span>
           </div>

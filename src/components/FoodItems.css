@@ -11,6 +11,13 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 }
 
+.clear:hover {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
 .sidebar-header {
   display: flex;
   justify-content: space-between;

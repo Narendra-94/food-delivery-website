@@ -33,12 +33,27 @@ export const Header = () => {
       <Search />
 
       <div className="user-auth">
+        <Link
+          to="/foodItems"
+          style={{
+            color: "#b468fa",
+            background: "white",
+            padding: "10px",
+            fontSize: "1.2rem",
+            borderRadius: "5px",
+            fontWeight: "bold",
+          }}
+        >
+          Cravings?!
+        </Link>
         {token ? (
           <Link to="/profile/profile-information">
             <FontAwesomeIcon icon={faUser} size="xl" />
           </Link>
         ) : (
-          <Link to="/login">Login</Link>
+          <Link to="/login" className="login-hover">
+            Login
+          </Link>
         )}
         <Link to="/cart" className="cart-icon-wrapper">
           {state?.cart?.length > 0 && token && (

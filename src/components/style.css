@@ -271,6 +271,27 @@ input:focus {
   border-radius: 50%;
 }
 
+.login-hover {
+  font-size: 1.2rem;
+}
+
+.login-hover:hover {
+  background-color: #881bed;
+  padding: 10px;
+}
+
+.error-password {
+  position: absolute;
+  top: 47px;
+  color: red;
+  font-weight: bold;
+}
+
+.error-email {
+  color: red;
+  font-weight: bold;
+}
+
 /* Media queries */
 @media (max-width: 767px) {
   .header {

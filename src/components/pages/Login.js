@@ -136,7 +136,7 @@ export const Login = () => {
             }
             required
           />
-          {errors.email && <span className="error">{errors.email}</span>}
+          {errors.email && <span className="error-email">{errors.email}</span>}
 
           <label>Password</label>
           <div className="password-input-container">
@@ -150,9 +150,9 @@ export const Login = () => {
               required
             />
             {errors.password && (
-              <span className="error">{errors.password}</span>
+              <span className="error-password">{errors.password}</span>
             )}
-            <span
+            <i
               className="login-eye"
               onClick={() => dispatch({ type: "ON_CLICKING_SHOW_PASSWORD" })}
             >
@@ -160,7 +160,7 @@ export const Login = () => {
                 icon={state.showPassword ? faEyeSlash : faEye}
                 style={{ color: "#000000" }}
               />
-            </span>
+            </i>
           </div>
 
           <div className="login-btn">

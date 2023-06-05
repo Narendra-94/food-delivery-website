@@ -146,10 +146,10 @@ export const SignUp = () => {
               </span>
 
               {errors.password && (
-                <span className="error">{errors.password}</span>
+                <span className="error-signup-password">{errors.password}</span>
               )}
 
-              <label>Confirm Password</label>
+              <label style={{ marginTop: "37px" }}>Confirm Password</label>
               <input
                 value={signUpData.confirmPassword}
                 type={state.showConfirmPassword ? "password" : "text"}
@@ -170,7 +170,9 @@ export const SignUp = () => {
                 />
               </span>
               {errors.confirmPassword && (
-                <span className="error">{errors.confirmPassword}</span>
+                <span className="error-signup-confirm-password">
+                  {errors.confirmPassword}
+                </span>
               )}
             </div>
           </div>

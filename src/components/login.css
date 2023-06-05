@@ -93,10 +93,11 @@ label {
 
 .eye-show-confirm-password {
   position: absolute;
-  bottom: 20%;
+  bottom: 25%;
   right: 10px;
   cursor: pointer;
 }
+
 .password-input-container {
   display: flex;
   flex-direction: column;
@@ -107,6 +108,18 @@ label {
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
+}
+.error-signup-password {
+  position: absolute;
+  top: 50px;
+  color: red;
+  font-weight: bold;
+}
+
+.error-signup-confirm-password {
+  top: 42px;
+  color: red;
+  font-weight: bold;
 }
 
 button {
@@ -149,8 +162,11 @@ button {
     position: absolute;
     top: 50%;
     right: 20px;
-    transform: translateY(-50%);
+    transform: translateY(-40%);
     cursor: pointer;
+  }
+  .password-input-container .login-btn:focus ~ span {
+    top: -30px;
   }
 
   .eye-show-password {

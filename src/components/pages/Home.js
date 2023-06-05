@@ -9,13 +9,20 @@ const Home = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoader(false);
-    }, 2000);
+    }, 1000);
   }, []);
 
   return (
     <>
       {isLoader && <Loader />}
-      <div className="content">
+      <div
+        className="content"
+        style={
+          isLoader
+            ? { overflowY: "hidden", height: "100%" }
+            : { overflow: "auto", height: "auto" }
+        }
+      >
         <PageInformation />
         <Categories />
         <Footer />
