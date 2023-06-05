@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
 export const ProfileNavbar = () => {
-  const [color, setColor] = useState({
+  const [setColor] = useState({
     profileInfo: true,
     address: false,
     orderHistroy: false,

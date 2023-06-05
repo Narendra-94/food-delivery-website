@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { v4 as uuid } from "uuid";
 import { FoodListContext } from "../../context/FoodListContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faTag } from "@fortawesome/free-solid-svg-icons";
-import { toast, ToastContainer } from "react-toastify";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { toast } from "react-toastify";
 import { AddressForm } from "../AddressForm";
 import { handleCheckout } from "../HandleCheckout";
 import { OrderContext } from "../../context/OrderContext";
@@ -12,7 +12,6 @@ import { useNavigate } from "react-router-dom";
 export const Checkout = () => {
   const { state, dispatch } = useContext(FoodListContext);
   const { setOrder } = useContext(OrderContext);
-  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const totalPrice = state.cart.reduce(
@@ -30,8 +29,6 @@ export const Checkout = () => {
     );
 
     if (selectedAddress) {
-      setIsLoading(true);
-
       try {
         const orderData = await handleCheckout(
           selectedAddress,
@@ -44,8 +41,6 @@ export const Checkout = () => {
       } catch (error) {
         console.error("Error during checkout:", error);
         toast.error("An error occurred during checkout.");
-      } finally {
-        setIsLoading(false);
       }
     } else {
       toast.error("Please select an address before placing the order.");

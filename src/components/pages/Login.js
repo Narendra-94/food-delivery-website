@@ -19,7 +19,7 @@ export const Login = () => {
   const { errors, setErrors } = useContext(ErrorContext);
 
   const { state, dispatch } = useContext(FoodListContext);
-  const { setToken, profile, setProfile, signUpData } = useContext(AuthContext);
+  const { setToken, profile, setProfile } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const location = useLocation();

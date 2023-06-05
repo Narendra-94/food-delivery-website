@@ -29,7 +29,7 @@ export const Search = () => {
     return () => {
       window.removeEventListener("click", handleWindowClick);
     };
-  }, []);
+  });
 
   return (
     <div className="input-search" ref={searchContainerRef}>
@@ -37,8 +37,8 @@ export const Search = () => {
         onChange={(e) =>
           dispatch({ type: "SEARCH_DATA", payload: e.target.value })
         }
-        onClick={clearInputValue} // Add onClick event handler to clear the input value
-        value={state.inputValue} // Set the input value from the state
+        onClick={clearInputValue}
+        value={state.inputValue}
         type="search"
         placeholder="type here..."
       />
@@ -53,7 +53,7 @@ export const Search = () => {
                 to={`/foodItems/${_id}`}
                 className="search-output-item"
                 key={_id}
-                onClick={clearInputValue} // Add onClick event handler to clear the input value
+                onClick={clearInputValue}
               >
                 <img src={url} alt="" className="search-output-item-image" />
                 <div className="search-output-item-details">
