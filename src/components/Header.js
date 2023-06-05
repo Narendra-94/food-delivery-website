@@ -9,19 +9,24 @@ import { Search } from "./Search";
 
 import { FoodListContext } from "../context/FoodListContext";
 import { AuthContext } from "../context/AuthContext";
+import { useLocation } from "react-router-dom";
 
 export const Header = () => {
   const { state, dispatch } = useContext(FoodListContext);
   const { token } = useContext(AuthContext);
+  const location = useLocation();
 
   return (
     <div className="header">
-      <FontAwesomeIcon
-        onClick={() => dispatch({ type: "SIDEBAR_ACTIVE" })}
-        icon={faBars}
-        style={{ color: "white", cursor: "pointer" }}
-        size="xl"
-      />
+      {location.pathname === "/foodItems" && (
+        <FontAwesomeIcon
+          onClick={() => dispatch({ type: "SIDEBAR_ACTIVE" })}
+          icon={faBars}
+          style={{ color: "white", cursor: "pointer" }}
+          size="xl"
+        />
+      )}
+
       <Link to="/" className="logo">
         <img src={logo} alt="" />
       </Link>

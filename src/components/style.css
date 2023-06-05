@@ -5,6 +5,17 @@
   /* box-sizing: border-box; */
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: #360464;
+}
+::-webkit-scrollbar-track {
+  border-radius: 8px;
+}
+
 body {
   font-family: Arial, sans-serif;
   height: 100vh;
@@ -157,8 +168,17 @@ input:focus {
   width: 100%;
 }
 
+.footer-links {
+  font-size: 1.75rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-links a {
+  margin-right: 2rem;
+}
 .search-output-container {
-  width: 40rem;
+  width: 38rem;
   max-height: 55vh;
   padding: 1rem;
   z-index: 10000;
@@ -244,9 +264,10 @@ input:focus {
   justify-content: center;
   width: 20px;
   height: 20px;
-  background-color: green;
-  color: white;
+  background-color: #f6d600;
+  color: black;
   font-size: 12px;
+  font-weight: bolder;
   border-radius: 50%;
 }
 

@@ -261,6 +261,22 @@
   padding: 0.2rem 0.4rem;
   font-size: 0.8rem;
 }
+
+.food-rating-container {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 1.5rem;
+  width: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 40px;
+  border-top-right-radius: 10px;
+  top: 110px;
+}
+
 @media (max-width: 768px) {
   /* Adjust the styles for smaller screens */
   .sidebar-container {

@@ -9,6 +9,7 @@ import { HomeProvider } from "./context/HomeContext";
 import { FoodListProvider } from "./context/FoodListContext";
 import { AuthProvider } from "./context/AuthContext";
 import { ErrorProvider } from "./context/ErrorContext";
+import { OrderProvider } from "./context/OrderContext";
 
 // Call make Server
 makeServer();
@@ -20,9 +21,11 @@ root.render(
       <AuthProvider>
         <HomeProvider>
           <FoodListProvider>
-            <ErrorProvider>
-              <App />
-            </ErrorProvider>
+            <OrderProvider>
+              <ErrorProvider>
+                <App />
+              </ErrorProvider>
+            </OrderProvider>
           </FoodListProvider>
         </HomeProvider>
       </AuthProvider>

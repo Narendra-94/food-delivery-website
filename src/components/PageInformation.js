@@ -27,3 +27,5 @@ export const PageInformation = () => {
     </div>
   );
 };
+
+//Go to cart: #2da76e

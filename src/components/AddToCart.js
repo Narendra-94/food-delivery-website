@@ -49,7 +49,7 @@ export const AddToCart = ({ product }) => {
     <div className="add-to-cart-btn">
       {isInCart && token ? (
         <Link to="/cart">
-          <button style={{ backgroundColor: "green" }}>Go to Cart</button>
+          <button style={{ backgroundColor: "#2da76e" }}>Go to Cart</button>
         </Link>
       ) : (
         <button onClick={handleAddToCart}>Add to Cart</button>

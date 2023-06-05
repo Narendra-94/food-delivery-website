@@ -11,15 +11,15 @@ export const initialState = {
   sortBy: null,
   inputValue: "",
   isSearchOpen: false,
-  category: "",
+  category: [],
   showPassword: false,
   showConfirmPassword: false,
   cart: [],
   wishList: [],
-  isEdit: false,
   isAdded: false,
   editAddressId: null,
   selectedAddressId: null,
+  selectedCategory: [],
 
   addresses: [
     {
@@ -131,6 +131,7 @@ export const reducer = (state, action) => {
         showNonVeg: false,
         selectedRating: false,
         sortBy: null,
+        selectedCategory: [],
       };
     }
 
@@ -150,11 +151,26 @@ export const reducer = (state, action) => {
       };
     }
 
+    case "SET_SELECTED_CATEGORY":
+      return {
+        ...state,
+        selectedCategory: action.payload,
+      };
+
     case "ON_CLICKING_CATEGORY": {
       return {
         ...state,
       };
     }
+
+    case "FILTER_BY_CATEGORY":
+      const updatedCategory = state.selectedCategory.includes(action.payload)
+        ? state.selectedCategory.filter(
+            (addedCategory) => addedCategory !== action.payload
+          )
+        : [...state.selectedCategory, action.payload];
+
+      return { ...state, selectedCategory: updatedCategory };
 
     case "ON_CLICKING_SHOW_PASSWORD": {
       return {
@@ -286,6 +302,9 @@ export const reducer = (state, action) => {
       return { ...state, selectedAddressId: action.payload };
     }
 
+    case "CLEAR_CART": {
+      return { ...state, cart: [] };
+    }
     default:
       return state;
   }

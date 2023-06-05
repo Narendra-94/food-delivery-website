@@ -66,8 +66,18 @@ export const AddressForm = ({ details }) => {
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (state.isAdded) {
+      handleAddButtonClick();
+    } else {
+      handleUpdateButtonClick();
+    }
+  };
+
   return (
-    <div className="form-input">
+    <form className="form-input" onSubmit={handleSubmit}>
       <div className="form-row">
         <div className="form-column">
           <input
@@ -76,6 +86,7 @@ export const AddressForm = ({ details }) => {
             placeholder="Name"
             onChange={(e) => handleFormInput(e, "name")}
             className="form-input-field"
+            required
           />
         </div>
       </div>
@@ -88,6 +99,7 @@ export const AddressForm = ({ details }) => {
             placeholder="Mobile No."
             onChange={(e) => handleFormInput(e, "phone")}
             className="form-input-field"
+            required
           />
         </div>
         <div className="form-column">
@@ -97,6 +109,7 @@ export const AddressForm = ({ details }) => {
             placeholder="City"
             onChange={(e) => handleFormInput(e, "city")}
             className="form-input-field"
+            required
           />
         </div>
       </div>
@@ -109,6 +122,7 @@ export const AddressForm = ({ details }) => {
             placeholder="Pin"
             onChange={(e) => handleFormInput(e, "pin")}
             className="form-input-field"
+            required
           />
         </div>
         <div className="form-column">
@@ -118,6 +132,7 @@ export const AddressForm = ({ details }) => {
             placeholder="State"
             onChange={(e) => handleFormInput(e, "profileState")}
             className="form-input-field"
+            required
           />
         </div>
       </div>
@@ -133,30 +148,31 @@ export const AddressForm = ({ details }) => {
             value={detailsInput.addressText}
             placeholder="Address"
             onChange={(e) => handleFormInput(e, "addressText")}
+            required
           />
         </div>
       </div>
 
       <div className="form-row">
         <div className="form-column">
-          <button
-            onClick={
-              state.isAdded ? handleAddButtonClick : handleUpdateButtonClick
-            }
-          >
-            {state.isAdded ? "Add" : "Update"}
+          <button type="submit">{state.isAdded ? "Add" : "Update"}</button>
+        </div>
+        <div className="form-column">
+          <button type="button" onClick={inputResetHandler}>
+            Reset
           </button>
         </div>
         <div className="form-column">
-          <button onClick={inputResetHandler}>Reset</button>
+          <button type="button" onClick={handleRandomData}>
+            Random Data
+          </button>
         </div>
         <div className="form-column">
-          <button onClick={handleRandomData}>Random Data</button>
-        </div>
-        <div className="form-column">
-          <button onClick={handleCancelButtonClick}>Cancel</button>
+          <button type="button" onClick={handleCancelButtonClick}>
+            Cancel
+          </button>
         </div>
       </div>
-    </div>
+    </form>
   );
 };

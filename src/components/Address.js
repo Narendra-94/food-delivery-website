@@ -66,7 +66,7 @@ export const Address = () => {
                 {isEditing ? (
                   <AddressForm details={details} />
                 ) : (
-                  <div>
+                  <div style={{ width: "100%" }}>
                     <div className="list-stacked-heading">
                       <h3>{name}</h3>
                     </div>

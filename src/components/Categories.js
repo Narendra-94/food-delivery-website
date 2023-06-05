@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-
 import { Link } from "react-router-dom";
 import { FoodListContext } from "../context/FoodListContext";
 
@@ -8,15 +7,16 @@ export const Categories = () => {
 
   const handleClickCategory = (categoryName) => {
     dispatch({
-      type: "ON_CLICKING_CATEGORY",
-      payload: categoryName,
+      type: "SET_SELECTED_CATEGORY",
+      payload: [categoryName], // Set the clicked category as the only selected category
     });
   };
+
   return (
     <div className="food-categories">
       {state.foodHome.map(({ _id, categoryName, url }) => (
         <Link
-          to={"/foodItems"}
+          to="/foodItems"
           key={_id}
           className="cuisines"
           onClick={() => handleClickCategory(categoryName)}

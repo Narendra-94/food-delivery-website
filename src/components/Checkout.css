@@ -18,6 +18,7 @@
   gap: 2rem;
   width: 35rem;
 }
+
 .text-align-center {
   text-align: center;
   font-size: 1.5rem;
@@ -145,4 +146,42 @@ li {
 .add-address-container {
   z-index: 999;
   min-width: 20rem;
+}
+
+@media (max-width: 576px) {
+  /* Styles for mobile screens */
+  .checkout-outer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .checkout-address-container,
+  .checkout-box-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .checkout-box {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Styles for tablet screens */
+  .checkout-address-container,
+  .checkout-box-container {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Styles for desktop screens */
+  .checkout-outer-container {
+    gap: 4rem;
+  }
+
+  .checkout-address-container,
+  .checkout-box-container {
+    width: 35rem;
+  }
 }

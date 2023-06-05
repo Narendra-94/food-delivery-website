@@ -4,6 +4,7 @@ import { FoodListContext } from "../context/FoodListContext";
 
 export const Sidebar = () => {
   const { state, dispatch } = useContext(FoodListContext);
+
   const handleRatingChange = (rating) => {
     dispatch({ type: "SET_SELECTED_RATING", payload: rating });
   };
@@ -39,7 +40,7 @@ export const Sidebar = () => {
             />
           </div>
           <div className="sidebar-category">
-            <h2>Category</h2>
+            <h2>Preferences</h2>
             <div className="sidebar-category-list">
               <li>
                 <input
@@ -67,6 +68,54 @@ export const Sidebar = () => {
               </li>
             </div>
           </div>
+          <div className="sidebar-category">
+            <h2>Category</h2>
+            <div className="sidebar-category-list">
+              <li>
+                <input
+                  type="checkbox"
+                  value="Indian"
+                  checked={state.selectedCategory.includes("Indian")}
+                  onChange={(e) =>
+                    dispatch({
+                      type: "FILTER_BY_CATEGORY",
+                      payload: e.target.value,
+                    })
+                  }
+                />
+                <span>Indian</span>
+              </li>
+              <li>
+                <input
+                  type="checkbox"
+                  value="Chinese"
+                  checked={state.selectedCategory.includes("Chinese")}
+                  onChange={(e) =>
+                    dispatch({
+                      type: "FILTER_BY_CATEGORY",
+                      payload: e.target.value,
+                    })
+                  }
+                />
+                <span>Chinese</span>
+              </li>
+              <li>
+                <input
+                  type="checkbox"
+                  value="Italian"
+                  checked={state.selectedCategory.includes("Italian")}
+                  onChange={(e) =>
+                    dispatch({
+                      type: "FILTER_BY_CATEGORY",
+                      payload: e.target.value,
+                    })
+                  }
+                />
+                <span>Italian</span>
+              </li>
+            </div>
+          </div>
+
           <div className="sidebar-rating">
             <h2>Rating</h2>
             <div className="sidebar-rating-list">

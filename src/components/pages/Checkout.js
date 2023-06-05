@@ -1,13 +1,19 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { v4 as uuid } from "uuid";
 import { FoodListContext } from "../../context/FoodListContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faTag } from "@fortawesome/free-solid-svg-icons";
-
+import { toast, ToastContainer } from "react-toastify";
 import { AddressForm } from "../AddressForm";
+import { handleCheckout } from "../HandleCheckout";
+import { OrderContext } from "../../context/OrderContext";
+import { useNavigate } from "react-router-dom";
 
 export const Checkout = () => {
   const { state, dispatch } = useContext(FoodListContext);
+  const { setOrder } = useContext(OrderContext);
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const totalPrice = state.cart.reduce(
     (acc, curr) => acc + Number(curr.price * curr.qty),
@@ -16,15 +22,44 @@ export const Checkout = () => {
 
   const totalItems = state.cart.reduce((acc, curr) => acc + curr.qty, 0);
 
+  const totalCheckoutPrice = totalPrice + 100;
+
+  const handlePlaceOrder = async () => {
+    const selectedAddress = state.addresses.find(
+      (address) => address.id === state.selectedAddressId
+    );
+
+    if (selectedAddress) {
+      setIsLoading(true);
+
+      try {
+        const orderData = await handleCheckout(
+          selectedAddress,
+          totalCheckoutPrice,
+          state.cart
+        );
+        setOrder(orderData);
+        dispatch({ type: "CLEAR_CART" });
+        navigate("/profile/order-history");
+      } catch (error) {
+        console.error("Error during checkout:", error);
+        toast.error("An error occurred during checkout.");
+      } finally {
+        setIsLoading(false);
+      }
+    } else {
+      toast.error("Please select an address before placing the order.");
+    }
+  };
+
   return (
     <div className="topToBody checkout-outer-container">
       <div className="checkout-address-container">
         <h3 className="text-align-center">Address Details</h3>
 
         {state.addresses.map((details) => {
-          const { id, name, phone, city, pin, addressText, profileState } =
-            details;
-          const isEditing = state.editAddressId === id;
+          const { id, name, phone, addressText, profileState } = details;
+
           return (
             <div className="checkout-address-box">
               <input
@@ -38,7 +73,9 @@ export const Checkout = () => {
 
               <label htmlFor="" className="address-label">
                 <h3>{name}</h3>
-                <p>{addressText}</p>
+                <p>
+                  {addressText},{profileState}
+                </p>
                 <p>
                   <span>Mobile:</span>
                   {phone}
@@ -81,17 +118,7 @@ export const Checkout = () => {
       <div className="checkout-box-container">
         <div className="checkout-box">
           <h3 className="text-align-center">Order Details</h3>
-          <div className="checkout-coupon-code">
-            <FontAwesomeIcon icon={faTag} />
-            <div className="coupon-container">
-              <input
-                type="text"
-                className="coupon-field"
-                placeholder="coupon code"
-              />
-              <button>Apply</button>
-            </div>
-          </div>
+
           <hr className="cart-price-details-hr" />
           <div>
             <li>
@@ -101,7 +128,7 @@ export const Checkout = () => {
               </ul>
             </li>
             <li>
-              {state.cart.map(({ _id, title, price, qty }) => (
+              {state.cart.map(({ _id, title, qty }) => (
                 <ul key={_id}>
                   <p>{title}</p>
                   <p>{qty}</p>
@@ -124,7 +151,7 @@ export const Checkout = () => {
           </div>
           <ul>
             <h4>Total Amount</h4>
-            <h4>₹ {totalPrice + 100}</h4>
+            <h4>₹ {totalCheckoutPrice}</h4>
           </ul>
           <h4 className="text-align-center border-header">Deliver To</h4>
           <div className="deliver-container">
@@ -138,11 +165,15 @@ export const Checkout = () => {
                     <p className="paragraph-sm">Phone Number: {phone}</p>
                   </div>
                 );
-              } else return <h4>Enter Address for Delivery</h4>;
+              }
+              return null;
             })}
+            {state.selectedAddressId === null && (
+              <h4>Enter Address for Delivery</h4>
+            )}
           </div>
           <div className="text-center">
-            <button>Place Order</button>
+            <button onClick={handlePlaceOrder}>Place Order</button>
           </div>
         </div>
       </div>
