@@ -23,7 +23,18 @@ export const Login = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
+
   const handleLoginGuest = async () => {
+    toast.success("Successfully logged in as Guest", {
+      autoClose: 1000,
+      position: "bottom-right",
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
     const creds = {
       email: "narenchordiya07@gmail.com",
       password: "Naren@goResto",
@@ -85,6 +96,16 @@ export const Login = () => {
         firstName: data.foundUser.firstName,
         lastName: data.foundUser.lastName,
         email: data.foundUser.email,
+      });
+      toast.success("Successfully logged in ", {
+        autoClose: 1000,
+        position: "bottom-right",
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
       });
     } else {
       toast.error("Wrong Credentials", {

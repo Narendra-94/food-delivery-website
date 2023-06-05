@@ -24,21 +24,12 @@ import "../components/AddressForm.css";
 import "../components/Checkout.css";
 import "../components/FoodInformation.css";
 
-import { Loader } from "./Loader";
 import { Error } from "./pages/Error";
 import { ToastContainer } from "react-toastify";
 
 export const App = () => {
-  const [isLoader, setIsLoader] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoader(false);
-    }, 2000);
-  }, []);
-
   return (
     <>
-      {isLoader && <Loader />}
       <ToastContainer />
       <Header />
 

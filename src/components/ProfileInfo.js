@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { toast } from "react-toastify";
 
 export const ProfileInfo = () => {
   const { profile, setToken } = useContext(AuthContext);
@@ -11,6 +12,16 @@ export const ProfileInfo = () => {
     localStorage.clear();
     navigate("/login");
     setToken("");
+    toast.error("Logged Out", {
+      autoClose: 1000,
+      position: "top-right",
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   };
 
   return (
