@@ -19,9 +19,17 @@ Our Food Delivery Website offers the following features:
 + Single Product Page
 + Responisve
 
-
+### Tech Stack
+**Client**: React
+**Server**: Node
 
 ## E-Commerce Backend
 
 This folder contains the Mock Backend created for E-Commerce App. It contains different API end-points and database configuration for building E-Commerce; so that you can focus on building Frontend.
 
+### Contributing
+
+We welcome contributions to our Food Delivery Website project! If you're interested in helping us improve the website or adding new features.
+
+###Authors
++ [Narendra Chordiya](https://github.com/Narendra-94)
