@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FoodListContext } from "../../context/FoodListContext";
 import { AddToWishList } from "../AddToWishList";
 import emptyWishlist from "../../images/empty-wishlist1.gif";
