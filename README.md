@@ -31,5 +31,10 @@ This folder contains the Mock Backend created for E-Commerce App. It contains di
 
 We welcome contributions to our Food Delivery Website project! If you're interested in helping us improve the website or adding new features.
 
-###Authors
-+ [Narendra Chordiya](https://github.com/Narendra-94)
+### Authors
++ [@Narendra Chordiya](https://github.com/Narendra-94)
+
+### Deployment
+<pre>
+npm run build
+</pre>
