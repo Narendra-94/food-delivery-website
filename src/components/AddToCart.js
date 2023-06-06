@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import { FoodListContext } from "../context/FoodListContext";
 import { AuthContext } from "../context/AuthContext";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export const AddToCart = ({ product }) => {
   const { state, dispatch } = useContext(FoodListContext);
   const { token } = useContext(AuthContext);
   const navigate = useNavigate();
-  const location = useLocation();
 
   const handleAddToCart = async () => {
     token &&

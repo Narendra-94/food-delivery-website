@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FoodListContext } from "../../context/FoodListContext";
 import { AddToWishList } from "../AddToWishList";
-import { AddToCart } from "../AddToCart";
 import emptyWishlist from "../../images/empty-wishlist1.gif";
 import { toast, ToastContainer } from "react-toastify";
 import { AuthContext } from "../../context/AuthContext";
@@ -11,7 +10,6 @@ export const WishList = () => {
   const { state, dispatch } = useContext(FoodListContext);
   const { token } = useContext(AuthContext);
   const navigate = useNavigate();
-  const location = useLocation();
 
   const handleAddToCart = async (product) => {
     token &&
