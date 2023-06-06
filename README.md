@@ -36,5 +36,8 @@ We welcome contributions to our Food Delivery Website project! If you're interes
 
 ### Deployment
 <pre>
-cd npm run build
+$ git clone https://github.com/Narendra-94/food-delivery-website
+$ cd food-delivery-website
+$ npm install
+$ npm start
 </pre>
