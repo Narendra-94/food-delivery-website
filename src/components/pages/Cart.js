@@ -95,8 +95,12 @@ export const Cart = () => {
               ))}
 
               <div className="cart-price-item">
-                <p>Total Price:</p>
-                <p className="price">{totalPrice}</p>
+                <p>
+                  <b>Total Price:</b>
+                </p>
+                <p className="price">
+                  <b>{totalPrice}</b>
+                </p>
               </div>
               <div className="checkout-button">
                 <Link to="/checkout">
