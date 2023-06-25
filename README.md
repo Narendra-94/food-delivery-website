@@ -20,8 +20,8 @@ Our Food Delivery Website offers the following features:
 + Responisve
 
 ### Tech Stack
-**Client**: React
-**Server**: Node
+-**Client**: React
+-**Server**: Node
 
 ## E-Commerce Backend
 
