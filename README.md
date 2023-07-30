@@ -20,8 +20,8 @@ Our Food Delivery Website offers the following features:
 + Responisve
 
 ### Tech Stack
-**Client**: React
-**Server**: Node
+-**Client**: React
+-**Server**: Node
 
 ## E-Commerce Backend
 
@@ -36,5 +36,8 @@ We welcome contributions to our Food Delivery Website project! If you're interes
 
 ### Deployment
 <pre>
-cd npm run build
+$ git clone https://github.com/Narendra-94/food-delivery-website
+$ cd food-delivery-website
+$ npm install
+$ npm start
 </pre>
