@@ -8,10 +8,12 @@ import { AddressForm } from "../AddressForm";
 import { handleCheckout } from "../HandleCheckout";
 import { OrderContext } from "../../context/OrderContext";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 export const Checkout = () => {
   const { state, dispatch } = useContext(FoodListContext);
   const { setOrder } = useContext(OrderContext);
+  const { token } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const totalPrice = state.cart.reduce(
@@ -33,7 +35,8 @@ export const Checkout = () => {
         const orderData = await handleCheckout(
           selectedAddress,
           totalCheckoutPrice,
-          state.cart
+          state.cart,
+          token
         );
         setOrder(orderData);
         dispatch({ type: "CLEAR_CART" });

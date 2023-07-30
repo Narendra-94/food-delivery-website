@@ -44,7 +44,7 @@ export const Search = () => {
       />
 
       {(state.isSearchOpen || state.inputValue) && (
-        <div type="text" className="search-output-container">
+        <div>
           {filteredFoodList.length === 0 ? (
             <p className="no-data-found">No data found</p>
           ) : (

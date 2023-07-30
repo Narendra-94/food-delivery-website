@@ -18,6 +18,7 @@ export const FoodContent = () => {
       setIsLoader(false);
     }, 2000);
   }, []);
+
   const selectedCategory =
     state.selectedCategory.length === 0
       ? state.foodList

@@ -14,7 +14,7 @@ const Home = () => {
 
   return (
     <>
-      {isLoader && <Loader />}
+      {/* {isLoader && <Loader />} */}
       <div
         className="content"
         style={

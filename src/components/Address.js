@@ -58,7 +58,7 @@ export const Address = () => {
           {state.addresses.map((details) => {
             const { id, name, phone, city, pin, addressText, profileState } =
               details;
-
+            console.log(state.editAddressId, "state.editAddressId");
             const isEditing = state.editAddressId === id;
 
             return (

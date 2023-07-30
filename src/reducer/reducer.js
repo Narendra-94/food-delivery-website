@@ -250,6 +250,8 @@ export const reducer = (state, action) => {
       };
 
     case "ADDRESS_CANCEL_BUTTON_CLICKED": {
+      console.log(state.isAdded, "cancel");
+      console.log(state.editAddressId, "edit");
       return {
         ...state,
         editAddressId: null,
